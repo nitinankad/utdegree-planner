@@ -44,6 +44,10 @@ export default class LoadDegreeClasses extends Component {
 
       return (
           <div>
+              <div>
+                  {this.state.isLoading ? (<CircularProgress />) : null}
+              </div>
+
               <button style={buttonStyle()} onClick={this.handleClick} disabled={this.state.isLoading}>
                   Load classes from sample CS degree plan
               </button>
