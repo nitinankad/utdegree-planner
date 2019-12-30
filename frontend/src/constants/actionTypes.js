@@ -1,0 +1,6 @@
+export const actionTypes = {
+  ADD_COURSE: 'ADD_COURSE',
+  DELETE_COURSE: 'DELETE_COURSE',
+  SET_BOARD: 'SET_BOARD',
+  DRAG_EVENT: 'DRAG_EVENT',
+};
