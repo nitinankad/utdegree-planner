@@ -59,13 +59,16 @@ const AddCourseButton = (props) => {
 
   // Clicked outside while add course form is open
   const handleClickOutside = () => {
-    const courseName = state.text;
-    dispatch(addCourse(courseName, yearIndex, semesterIndex));
+    const courseName = state.text.trim();
 
     setState({
       isOpen: !state.isOpen,
       text: ''
     });
+
+    if (!courseName) return;
+
+    dispatch(addCourse(courseName, yearIndex, semesterIndex));
   }
 
   const handleKeyEnter = (event) => {
