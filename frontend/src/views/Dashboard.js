@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = (props) => {
   const classes = useStyles();
+  const [openSidebar, setSidebarState] = React.useState(false);
   const { dispatch, board } = props;
 
   const onDragEnd = (result) => {
@@ -48,13 +49,22 @@ const Dashboard = (props) => {
     dispatch(handleDrag(result));
   }
 
+  const toggleSidebar = () => {
+    setSidebarState(!openSidebar);
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
 
-      <Topbar />
+      <Topbar
+        onSidebarOpen={toggleSidebar}
+      />
 
-      <Sidebar />
+      <Sidebar
+        onSidebarClose={toggleSidebar}
+        open={openSidebar}
+      />
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
