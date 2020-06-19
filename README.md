@@ -15,19 +15,9 @@
 - Load sample four-year degree plans
 
 ## Setup
-1. Create a PostgreSQL database and import ```db.sql``` into your database from ```backend``` (make sure to run ```scrapeDegreePlans.py``` and copy over the insert statements into it first).
+1. Install the requirements with ```npm install```
 
-2. Then, change ```POSTGRES_INSTANCE```, ```POSTGRES_USER```, ```POSTGRES_PASSWORD```, ```POSTGRES_DATABASE``` in ```getDegreePlan.py``` to your database. 
-
-3. Run ```get_degree_plan()``` on any serverless platform of your choice or locally. UTDegree Planner is hosted on Google Cloud Functions.
-
-4. Copy your API link and create .env in frontend if it doesn't exist already and set ```REACT_APP_API_URL=``` to your API endpoint
-
-## Usage
-In ```frontend```, install the requirements with ```npm install``` and then run with ```npm start```
-
-## Future plans
-See [Roadmap](https://github.com/nitinankad/utdegree-planner/projects/1)
+2. Run the project with ```npm start```
 
 ## Contributions
 Feel free to contribute! Submit an issue if you want to report a bug or suggest a feature and create a pull request if you want to submit a feature or bug fix
