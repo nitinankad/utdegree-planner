@@ -14,9 +14,8 @@ import AddCourseButton from '../views/components/AddCourseButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    'margin-top': '10px',
-	[theme.breakpoints.up('md')]: {
-      'margin-top': '0px',
+    [theme.breakpoints.down('md')]: {
+      'margin-top': '10px',
     },
   },
   content: {

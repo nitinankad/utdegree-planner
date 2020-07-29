@@ -25,9 +25,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: '15px',
     padding: 4,
     fontWeight: 700,
-	marginTop: '10px',
-	[theme.breakpoints.up('md')]: {
-      marginTop: '0px',
+	[theme.breakpoints.down('md')]: {
+      marginTop: '10px',
     },
   },
   firstYearRow: {

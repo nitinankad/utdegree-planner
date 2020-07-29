@@ -26,16 +26,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 17,
   },
   hideDelete: {
-    display: 'none',
-	[theme.breakpoints.down('sm')]: {
-      display: 'block',
-		width: 4,
-		opacity: 0.6,
-		'&:hover': {
-		  opacity: 0.9,
-		},
-		marginRight: 17,
-    },
+	[theme.breakpoints.up('md')]: {
+		display: 'none',
+	},
   }
 }));
 

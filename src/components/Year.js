@@ -4,8 +4,7 @@ import Semester from './Semester';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'block',
-	[theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
 	width: '100%',
