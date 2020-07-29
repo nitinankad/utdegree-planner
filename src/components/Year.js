@@ -2,14 +2,19 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Semester from './Semester';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: 'block',
+	[theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+	width: '100%',
   },
   semester: {
     userSelect: 'none',
     padding: '0px',
     margin: `0 10px 0 0`,
+	width: '100%',
   }
 }));
 

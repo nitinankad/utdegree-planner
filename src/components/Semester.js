@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Card,
   CardHeader,
@@ -12,9 +12,15 @@ import Course from './Course';
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import AddCourseButton from '../views/components/AddCourseButton';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: '350px',
+    'margin-top': '10px',
+	[theme.breakpoints.up('md')]: {
+      'margin-top': '0px',
+    },
+  },
+  content: {
+	width: '100%',
   },
   cardHeaderStyle: {
     textAlign: 'center',

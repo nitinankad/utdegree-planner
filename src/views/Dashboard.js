@@ -12,10 +12,10 @@ import Year from "../components/Year";
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    width: '1300px'
   },
   content: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(1.5),
+	width: '100%',
   },
   toolbar: theme.mixins.toolbar,
   verticalYearLabel: {
@@ -25,6 +25,10 @@ const useStyles = makeStyles(theme => ({
     marginRight: '15px',
     padding: 4,
     fontWeight: 700,
+	marginTop: '10px',
+	[theme.breakpoints.up('md')]: {
+      marginTop: '0px',
+    },
   },
   firstYearRow: {
     // Prevents an excessive gap at the top
