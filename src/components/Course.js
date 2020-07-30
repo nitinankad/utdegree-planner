@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader } from "@material-ui/core";
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import { connect } from "react-redux";
 import { deleteCourse } from "../actions/courseActions";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '3px',
     cursor: 'pointer'
@@ -26,7 +26,9 @@ const useStyles = makeStyles(() => ({
     marginRight: 17,
   },
   hideDelete: {
-    display: 'none',
+	[theme.breakpoints.up('md')]: {
+		display: 'none',
+	},
   }
 }));
 

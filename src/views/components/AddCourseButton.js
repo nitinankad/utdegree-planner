@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
 import {
   Button, Card, Icon
 } from '@material-ui/core';
-import TextArea from "react-textarea-autosize";
 import { connect } from 'react-redux';
 import { addCourse } from "../../actions/courseActions";
+import * as courses from "../../constants/courses";
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { createFilterOptions } from '@material-ui/lab/Autocomplete';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,6 +26,9 @@ const useStyles = makeStyles(() => ({
       backgroundColor: '#72c45c',
     },
   },
+  smallFont: {
+	fontSize: '12px',
+  },
   closeIcon: {
     '&:hover': {
       backgroundColor: '#ebebeb',
@@ -30,7 +37,6 @@ const useStyles = makeStyles(() => ({
   cardStyle: {
     overflow: 'visible',
     minHeight: 30,
-    minWidth: 202,
     padding: '6px 8px 2px',
   },
   textAreaStyle: {
@@ -83,6 +89,13 @@ const AddCourseButton = (props) => {
       text: e.target.value
     });
   };
+  
+  const handleAutofill = (val) => {
+    setState({
+      ...state,
+      text: val
+    });
+  };
 
   const handleAddCourseClick = () => {
     if (state.text) {
@@ -100,7 +113,11 @@ const AddCourseButton = (props) => {
       </Button>
     );
   };
-
+  
+  const filterOptions = createFilterOptions({
+  limit: 20
+});
+  
   const renderForm = () => {
     return (
       <>
@@ -108,16 +125,24 @@ const AddCourseButton = (props) => {
           className={classes.cardStyle}
           onBlur={handleClickOutside}
         >
-          <TextArea
-            className={classes.textAreaStyle}
-            autoFocus
-            placeholder={'Enter a course name'}
-            value={state.text}
-            onChange={handleTextChange}
-            onKeyPress={handleKeyEnter}
-           />
+          
+		   <Autocomplete
+			  id="autofill"
+			  filterOptions={filterOptions}
+			  options={courses.courses}
+			  getOptionLabel={(option) => option.name}
+			  style={{ width: 200 }}
+			  onInputChange={(event, newInputValue) => {
+			    handleAutofill(newInputValue)
+			  }}
+			  renderInput={(params) => <TextField {...params} label="Course Name" autoFocus onChange={handleTextChange} onKeyPress={handleKeyEnter} value={state.text}/>}
+			  renderOption={(option, { selected }) => (
+				<Typography className={classes.smallFont}>{option.name}</Typography>
+				)}
+			/>
+		   
         </Card>
-        <Button className={classes.addCourseForm} onClick={handleAddCourseClick}>Add course</Button>
+        <Button className={classes.addCourseForm} onClick={handleAddCourseClick}>Add </Button>
         <Icon className={classes.closeIcon} onClick={handleOpenForm}>close</Icon>
       </>
     );
