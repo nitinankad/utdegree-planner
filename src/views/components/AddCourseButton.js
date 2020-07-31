@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   smallFont: {
-	fontSize: '12px',
+    fontSize: '12px',
   },
   closeIcon: {
     '&:hover': {
@@ -37,6 +37,7 @@ const useStyles = makeStyles(() => ({
   cardStyle: {
     overflow: 'visible',
     minHeight: 30,
+    width: '100%',
     padding: '6px 8px 2px',
   },
   textAreaStyle: {
@@ -89,7 +90,7 @@ const AddCourseButton = (props) => {
       text: e.target.value
     });
   };
-  
+
   const handleAutofill = (val) => {
     setState({
       ...state,
@@ -100,7 +101,7 @@ const AddCourseButton = (props) => {
   const handleAddCourseClick = () => {
     if (state.text) {
       setState({
-        ...state, 
+        ...state,
         text: ''
       })
     }
@@ -113,11 +114,11 @@ const AddCourseButton = (props) => {
       </Button>
     );
   };
-  
+
   const filterOptions = createFilterOptions({
-  limit: 20
-});
-  
+    limit: 20
+  });
+
   const renderForm = () => {
     return (
       <>
@@ -125,22 +126,22 @@ const AddCourseButton = (props) => {
           className={classes.cardStyle}
           onBlur={handleClickOutside}
         >
-          
-		   <Autocomplete
-			  id="autofill"
-			  filterOptions={filterOptions}
-			  options={courses.courses}
-			  getOptionLabel={(option) => option.name}
-			  style={{ width: 200 }}
-			  onInputChange={(event, newInputValue) => {
-			    handleAutofill(newInputValue)
-			  }}
-			  renderInput={(params) => <TextField {...params} label="Course Name" autoFocus onChange={handleTextChange} onKeyPress={handleKeyEnter} value={state.text}/>}
-			  renderOption={(option, { selected }) => (
-				<Typography className={classes.smallFont}>{option.name}</Typography>
-				)}
-			/>
-		   
+
+          <Autocomplete
+            id="autofill"
+            filterOptions={filterOptions}
+            options={courses.courses}
+            getOptionLabel={(option) => option.name}
+            style={{ flex: 1 }}
+            onInputChange={(event, newInputValue) => {
+              handleAutofill(newInputValue)
+            }}
+            renderInput={(params) => <TextField {...params} label="Course Name" autoFocus onChange={handleTextChange} onKeyPress={handleKeyEnter} value={state.text} />}
+            renderOption={(option, { selected }) => (
+              <Typography className={classes.smallFont}>{option.name}</Typography>
+            )}
+          />
+
         </Card>
         <Button className={classes.addCourseForm} onClick={handleAddCourseClick}>Add </Button>
         <Icon className={classes.closeIcon} onClick={handleOpenForm}>close</Icon>
