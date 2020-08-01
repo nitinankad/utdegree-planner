@@ -71,7 +71,7 @@ const Dashboard = (props) => {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-
+    
         <DragDropContext onDragEnd={onDragEnd}>
           {board.map((item, index) => (
             <div key={index} className={(index === 0) ? classes.firstYearRow : classes.yearRow}>

@@ -1,4 +1,5 @@
-export const courses = [{ name: "ACCT 2301 Introductory Financial Accounting" },
+export const courses = [{ name: "ALEKS 0000 Passed ALEKS Exam" },
+{ name: "ACCT 2301 Introductory Financial Accounting" },
 { name: "ACCT 2302 Introductory Management Accounting" },
 { name: "ACCT 3100 Professional Development" },
 { name: "ACCT 3101 Professional Program in Accounting Lyceum" },

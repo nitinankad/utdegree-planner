@@ -43,7 +43,6 @@ const LoadCourses = (props) => {
 
   const handleLoadDegreePlan = (e, schoolIndex) => {
     const selectedDegreeName = e.target.textContent;
-
     dispatch(setBoard(degreeData[schoolIndex].degreePlans[selectedDegreeName]));
   };
 

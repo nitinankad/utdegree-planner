@@ -7,20 +7,19 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
-	width: '100%',
+    width: '100%',
   },
   semester: {
     userSelect: 'none',
     padding: '0px',
     margin: `0 10px 0 0`,
-	width: '100%',
+    width: '100%',
   }
 }));
 
 const Year = (props) => {
   const classes = useStyles();
   const { semesters, yearIndex } = props;
-
   return (
     <div className={classes.root}>
       {semesters.map((semester, index) => (

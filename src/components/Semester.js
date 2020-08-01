@@ -63,6 +63,7 @@ const Semester = (props) => {
                                             yearIndex={yearIndex}
                                             semesterIndex={semesterIndex}
                                             courseIndex={index}
+                                            valid={course.valid === undefined ? '1' : course.valid}
                                         />
                                     </div>
                                 )}

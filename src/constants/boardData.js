@@ -4,6 +4,11 @@ export default [
     year: "FRESHMAN",
     semesters: [
       {
+        id: "0",
+        semesterName: "AP/Dual Credit",
+        courses: []
+      },
+      {
         id: "1",
         semesterName: "Fall semester",
         courses: []
