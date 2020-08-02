@@ -10,7 +10,15 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import SchoolIcon from '@material-ui/icons/School';
 import { connect } from 'react-redux';
 import { setBoard } from "../actions/boardActions";
+import Button from '@material-ui/core/Button';
 import degreeData from "../constants/degreePlans";
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import { loadJsonCourses, exportCourses } from "../actions/courseActions";
 
 const useStyles = makeStyles(theme => ({
   listItem: {
@@ -33,6 +41,41 @@ const LoadCourses = (props) => {
   const [state, setState] = useState({
     openMenu: false
   });
+  const [open, setOpen] = useState({
+    text: '',
+    isOpen: false
+  });
+
+  const handleClickOpen = () => {
+    setOpen({
+      ...open,
+      isOpen: !open.isOpen
+    });
+  };
+
+  const handleTextChange = (e) => {
+    setOpen({
+      ...open,
+      text: e.target.value
+    });
+  };
+
+  const handleClose = () => {
+    setOpen({
+      ...open,
+      isOpen: !open.isOpen
+    });
+
+  };
+
+  const handleExport = () => {
+    dispatch(exportCourses());
+  }
+
+  const handleSend = () => {
+    handleClose();
+    dispatch(loadJsonCourses(open.text));
+  }
 
   const handleClick = () => {
     setState({
@@ -43,6 +86,7 @@ const LoadCourses = (props) => {
 
   const handleLoadDegreePlan = (e, schoolIndex) => {
     const selectedDegreeName = e.target.textContent;
+    console.log(degreeData)
     dispatch(setBoard(degreeData[schoolIndex].degreePlans[selectedDegreeName]));
   };
 
@@ -52,17 +96,16 @@ const LoadCourses = (props) => {
         <ListItemIcon>
           <GetAppIcon />
         </ListItemIcon>
-        
+
         <ListItemText primary={`Load courses`} />
         {state.openMenu ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-
       <Collapse in={state.openMenu} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-        {degreeData.map((school, schoolIndex) => (
+          {degreeData.map((school, schoolIndex) => (
             <div key={school.schoolName}>
               <ListItem button className={classes.subheaderListItem}>
-                <ListItemText primary={school.schoolName} classes={{primary:classes.listItemText}} /> 
+                <ListItemText primary={school.schoolName} classes={{ primary: classes.listItemText }} />
               </ListItem>
 
               {Object.keys(school.degreePlans).map((degree, degreeIndex) => (
@@ -72,7 +115,7 @@ const LoadCourses = (props) => {
                       <SchoolIcon />
                     </ListItemIcon>
 
-                    <ListItemText primary={degree} classes={{primary:classes.listItemText}} />
+                    <ListItemText primary={degree} classes={{ primary: classes.listItemText }} />
                   </ListItem>
                 </div>
               ))}
@@ -80,8 +123,38 @@ const LoadCourses = (props) => {
           ))}
         </List>
       </Collapse>
-
-    </List>
+      <ListItem>
+        <Button variant="contained" onClick={handleClickOpen}>Import</Button>
+        <Dialog open={open.isOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Import</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Paste in your course JSON here (must be exported using the Export button above!)
+          </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="JSON"
+              type="text"
+              value={open.text}
+              onChange={handleTextChange}
+              fullWidth
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Cancel
+          </Button>
+            <Button onClick={handleSend} color="primary">
+              Import
+          </Button>
+          </DialogActions>
+        </Dialog>
+      </ListItem>
+      <ListItem>
+        <Button variant="contained" onClick={handleExport}>Export</Button>
+      </ListItem>
+    </List >
   );
 };
 

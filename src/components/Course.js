@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader } from "@material-ui/core";
+import { Card, CardHeader, IconButton } from "@material-ui/core";
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import { connect } from "react-redux";
 import { deleteCourse } from "../actions/courseActions";
+import { editCourse } from "../actions/courseActions";
 import Tooltip from '@material-ui/core/Tooltip';
+import CheckIcon from '@material-ui/icons/Check';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,13 +42,22 @@ const useStyles = makeStyles((theme) => ({
 const Course = (props) => {
   let { dispatch, courseName, yearIndex, semesterIndex, courseIndex, valid } = props;
   const classes = useStyles();
-  const [state, setState] = useState({ isHovering: false });
+  const [state, setState] = useState({ isHovering: false, manualApproved: false });
   const handleHover = () => {
     setState({
       ...state,
       isHovering: !state.isHovering
     });
   };
+
+  const setValid = () => {
+    setState({
+      ...state,
+      manualApproved: !state.manualApproved
+    });
+    console.log(state.manualApproved)
+    dispatch(editCourse(yearIndex, semesterIndex, courseIndex));
+  }
 
   const handleDelete = () => {
     dispatch(deleteCourse(yearIndex, semesterIndex, courseIndex));
@@ -70,7 +81,14 @@ const Course = (props) => {
         <CardHeader
           title={
             <>
-              <Tooltip title={valid === '1' ? '' : valid} placement="top-start">
+              <Tooltip interactive
+                title={
+                  valid === '1' ? '' :
+                    <React.Fragment>
+                      {valid}
+                      <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
+                    </React.Fragment>
+                } placement="top-start">
                 <div className={valid === '1' ? classes.highlightCourseName : classes.invalidHighlight}>{coursePrefix}</div>
               </Tooltip>
               {courseName}

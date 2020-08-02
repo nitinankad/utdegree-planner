@@ -1,5 +1,6 @@
 import boardData from "../constants/boardData";
 import { actionTypes } from "../constants/actionTypes";
+import prereqMap from "../constants/prereqMap";
 import uuid from "uuid4";
 
 const reorder = (list, startIndex, endIndex) => {
@@ -35,18 +36,35 @@ const dragWithinSemester = (board, sourceList, sourceIndex, destinationIndex, so
 
 
 const validateBoard = (board) => {
+  console.log('checking..');
+  console.log(prereqMap);
   for (var i = 0; i < board.length; i++) {
     var year = board[i]["semesters"];
     for (var j = 0; j < year.length; j++) {
       var sem = year[j]["courses"];
       for (var k = 0; k < sem.length; k++) {
-        if (Object.keys(sem[k]).length <= 2) continue;
-        var res = validateCourse(board, sem[k], i, j);
-        if (!res["result"]) {
-          sem[k]["valid"] = sem[k][res["type"]];
-          console.log(sem[k]["valid"]);
-        } else {
+        if(sem[k].manualApprove === true){
           sem[k]["valid"] = '1';
+          continue;
+        } 
+        var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
+        if (name && name.length === 1) {
+          name = name[0].replace(' ', '').toLowerCase();
+          var mapped = prereqMap[0][name];
+          console.log(mapped);
+          if (!mapped || Object.keys(mapped).length === 0) continue;
+          var res = validateCourse(board, mapped, i, j);
+
+          if (!res["result"]) {
+            var reason = prereqMap[0][name][res["type"]];
+            console.log(reason)
+            if(reason.startsWith("SPX"))
+              reason = reason.split(": ")[1]
+            sem[k]["valid"] = res["type"] + ": " + reason;
+            console.log(sem[k]["valid"]);
+          } else {
+            sem[k]["valid"] = '1';
+          }
         }
       }
     }
@@ -54,11 +72,16 @@ const validateBoard = (board) => {
 };
 
 const validateReq = (board, course, yearId, semId, req) => {
+  if (course[req].startsWith("SPX"))
+    return false;
+
   var add = 0;
   if (req === "Coreq" || req === "PreOrCoreq")
     add = 1;
 
-  var evalStr = course[req].replaceAll('and', '&&').replaceAll('or', '||');
+  if (!(req in course))
+    return true;
+  var evalStr = course[req].replace(/and/g, '&&').replace(/or/g, '||');
   for (var i = 0; i <= yearId; i++) {
     var year = board[i]["semesters"];
     var limit = i === yearId ? semId + add : year.length;
@@ -72,33 +95,33 @@ const validateReq = (board, course, yearId, semId, req) => {
       }
     }
   }
-  evalStr = evalStr.replaceAll(/[A-Z]+ [0-9]+/g, "false");
+  evalStr = evalStr.replace(/[A-Z]+ [0-9]+/g, "false");
   // it's a necessary evil
   // eslint-disable-next-line
   var res = eval(evalStr);
   // if (!res)
-    // console.log(course);
+  // console.log(course);
   return res;
 };
 
 const validateCourse = (board, course, yearId, semId) => {
   var good = true;
-  var result = {"type": ""};
+  var result = { "type": "" };
   if ("Prereq" in course) {
     var res = validateReq(board, course, yearId, semId, "Prereq");
-    if(!res)
+    if (!res)
       result["type"] = "Prereq";
     good &= res;
   }
   if ("Coreq" in course) {
     res = validateReq(board, course, yearId, semId, "Coreq");
-    if(!res)
+    if (!res)
       result["type"] = "Coreq";
     good &= res;
   }
   if ("PreOrCoreq" in course) {
     res = validateReq(board, course, yearId, semId, "PreOrCoreq");
-    if(!res)
+    if (!res)
       result["type"] = "PreOrCoreq";
     good &= res;
   }
@@ -217,11 +240,40 @@ const boardReducer = (state = boardData, action) => {
       return newBoard;
     }
 
+    case actionTypes.EDIT_COURSE: {
+      const { yearIndex, semesterIndex, courseIndex } = action.payload;
+      let currBoard = [...state];
+      currBoard[yearIndex].semesters[semesterIndex].courses[courseIndex].manualApprove = true;
+      validateBoard(currBoard);
+      return currBoard;
+    }
 
+    case actionTypes.EXPORT_COURSES: {
+      // const { json } = action.payload;
+      let currBoard = [...state];
+      var res = JSON.stringify(currBoard) // (currBoard, null, 2) for pretty print
+      alert(res);
+      return currBoard;
+    }
+
+    case actionTypes.LOAD_COURSE: {
+      const { json } = action.payload;
+      debugger
+      try {
+        var newBoard = JSON.parse(json);
+        console.log(json);
+        validateBoard(newBoard);
+        return newBoard;
+      } catch (error) {
+        return [...state];
+      }
+    }
 
     case actionTypes.SET_BOARD: {
       const { newBoard } = action.payload;
+      console.log('heyo')
       validateBoard(newBoard);
+      console.log(newBoard);
       return newBoard;
     }
 

@@ -17,3 +17,30 @@ export const deleteCourse = (yearIndex, semesterIndex, courseIndex) => {
     }
   }
 };
+
+export const editCourse = (yearIndex, semesterIndex, courseIndex) => {
+  return {
+    type: actionTypes.EDIT_COURSE,
+    payload: {
+      yearIndex, semesterIndex, courseIndex
+    }
+  }
+};
+
+export const loadJsonCourses = (json) => {
+  return {
+    type: actionTypes.LOAD_COURSE,
+    payload: {
+      json
+    }
+  }
+};
+
+export const exportCourses = () => {
+  return {
+    type: actionTypes.EXPORT_COURSES,
+    payload: {
+      
+    }
+  }
+};
