@@ -21,3 +21,5 @@
 
 ## Contributions
 Feel free to contribute! Submit an issue if you want to report a bug or suggest a feature and create a pull request if you want to submit a feature or bug fix
+
+Special thanks to @sunnyguan for adding some cool features!
