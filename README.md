@@ -13,6 +13,8 @@
 - Delete course
 - Highlight course prefix and number
 - Load sample four-year degree plans
+- Autocomplete course names
+- Responsiveness for mobile support
 
 ## Setup
 1. Install the requirements with ```npm install```
