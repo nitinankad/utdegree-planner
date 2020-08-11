@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     padding: theme.spacing(1.5),
-	width: '100%',
+    width: '100%',
   },
   toolbar: theme.mixins.toolbar,
   verticalYearLabel: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: '15px',
     padding: 4,
     fontWeight: 700,
-	[theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: '10px',
     },
   },
@@ -48,7 +48,6 @@ const Dashboard = (props) => {
     if (!result.destination) {
       return;
     }
-
     dispatch(handleDrag(result));
   }
 
@@ -71,21 +70,18 @@ const Dashboard = (props) => {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-    
         <DragDropContext onDragEnd={onDragEnd}>
           {board.map((item, index) => (
             <div key={index} className={(index === 0) ? classes.firstYearRow : classes.yearRow}>
               <Paper className={classes.verticalYearLabel}>
                 {item.year}
               </Paper>
-
               <Year
                 semesters={item.semesters}
                 yearIndex={index}
               />
             </div>
           ))}
-          
           <Footer />
         </DragDropContext>
       </main>

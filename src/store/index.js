@@ -12,7 +12,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export default () => {
   let store = createStore(persistedReducer);
   let persistor = persistStore(store);
+  // uncomment following line, save (auto recompile), 
+  // comment it again to clear cache
   // persistStore(store).purge();
-  
   return { store, persistor };
 };

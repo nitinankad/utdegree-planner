@@ -34,34 +34,30 @@ const dragWithinSemester = (board, sourceList, sourceIndex, destinationIndex, so
   return newBoard;
 };
 
-
+// validate all courses on the board
 const validateBoard = (board) => {
-  console.log('checking..');
-  console.log(prereqMap);
   for (var i = 0; i < board.length; i++) {
     var year = board[i]["semesters"];
     for (var j = 0; j < year.length; j++) {
       var sem = year[j]["courses"];
       for (var k = 0; k < sem.length; k++) {
-        if(sem[k].manualApprove === true){
+        if (sem[k].manualApprove === true) {
           sem[k]["valid"] = '1';
           continue;
-        } 
+        }
         var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
         if (name && name.length === 1) {
           name = name[0].replace(' ', '').toLowerCase();
+          
           var mapped = prereqMap[0][name];
-          console.log(mapped);
           if (!mapped || Object.keys(mapped).length === 0) continue;
           var res = validateCourse(board, mapped, i, j);
 
           if (!res["result"]) {
             var reason = prereqMap[0][name][res["type"]];
-            console.log(reason)
-            if(reason.startsWith("SPX"))
+            if (reason.startsWith("SPX"))
               reason = reason.split(": ")[1]
             sem[k]["valid"] = res["type"] + ": " + reason;
-            console.log(sem[k]["valid"]);
           } else {
             sem[k]["valid"] = '1';
           }
@@ -71,32 +67,39 @@ const validateBoard = (board) => {
   }
 };
 
+// main logic for validating one course for a certain prerequisite
 const validateReq = (board, course, yearId, semId, req) => {
-  if (course[req].startsWith("SPX"))
+  if (course[req].startsWith("SPX")){
+    console.log(course[req]);
     return false;
+  }
 
   var add = 0;
   if (req === "Coreq" || req === "PreOrCoreq")
-    add = 1;
+    add = 1; // Corequisite is allowed to be in current semester as well as all previous semesters
 
   if (!(req in course))
     return true;
   var evalStr = course[req].replace(/and/g, '&&').replace(/or/g, '||');
   for (var i = 0; i <= yearId; i++) {
     var year = board[i]["semesters"];
-    var limit = i === yearId ? semId + add : year.length;
+    // scans all courses in years < current year, then scan all courses in semester < current semester
+    var limit = i === yearId ? semId + add : year.length; 
     for (var j = 0; j < limit; j++) {
       var sem = year[j]["courses"];
       for (var k = 0; k < sem.length; k++) {
         var currName = sem[k].courseName.match('[A-Z]+ [0-9]+')
         if (evalStr.includes(currName)) {
+          // replace course with true in prerequisite string if taken previously
           evalStr = evalStr.replace(currName, 'true');
         }
       }
     }
   }
+  // replace all other 
   evalStr = evalStr.replace(/[A-Z]+ [0-9]+/g, "false");
-  // it's a necessary evil
+  console.log(evalStr);
+  // eval is a necessary evil
   // eslint-disable-next-line
   var res = eval(evalStr);
   // if (!res)
@@ -104,6 +107,7 @@ const validateReq = (board, course, yearId, semId, req) => {
   return res;
 };
 
+// validate single course for different types of prerequisites
 const validateCourse = (board, course, yearId, semId) => {
   var good = true;
   var result = { "type": "" };
@@ -158,9 +162,7 @@ const dragBetweenSemesters = (board, sourceList, destinationList, sourceIndex, d
       year.semesters.map((semester) => {
         if (semester.id === destinationId)
           semester.courses = newDestCourses;
-
         return semester;
-
       });
     }
 
@@ -180,8 +182,6 @@ const boardReducer = (state = boardData, action) => {
         valid: '1',
         courseName: courseName
       };
-
-      // console.log(newCourse);
 
       const destinationYear = state[yearIndex];
       const destinationSemester = destinationYear.semesters[semesterIndex];
@@ -240,41 +240,59 @@ const boardReducer = (state = boardData, action) => {
       return newBoard;
     }
 
+    // toggle the manually approved state for the current course
     case actionTypes.EDIT_COURSE: {
       const { yearIndex, semesterIndex, courseIndex } = action.payload;
       let currBoard = [...state];
-      currBoard[yearIndex].semesters[semesterIndex].courses[courseIndex].manualApprove = true;
+      let original = currBoard[yearIndex].semesters[semesterIndex].courses[courseIndex].manualApprove;
+      currBoard[yearIndex].semesters[semesterIndex].courses[courseIndex].manualApprove = !original;
       validateBoard(currBoard);
       return currBoard;
     }
 
+    // export course into JSON format that can be read back in through import button
     case actionTypes.EXPORT_COURSES: {
-      // const { json } = action.payload;
       let currBoard = [...state];
       var res = JSON.stringify(currBoard) // (currBoard, null, 2) for pretty print
-      alert(res);
+      alert(res); // might want to change to better interface (with copy button)
       return currBoard;
     }
 
+    // import previously exported JSON object into the degree plan
     case actionTypes.LOAD_COURSE: {
       const { json } = action.payload;
-      debugger
       try {
         var newBoard = JSON.parse(json);
-        console.log(json);
         validateBoard(newBoard);
         return newBoard;
       } catch (error) {
+        alert('JSON format error!')
         return [...state];
       }
     }
 
     case actionTypes.SET_BOARD: {
       const { newBoard } = action.payload;
-      console.log('heyo')
+      console.log(newBoard)
       validateBoard(newBoard);
-      console.log(newBoard);
       return newBoard;
+    }
+
+    // load prerequisite courses from unofficial transcript onto the degree plan
+    case actionTypes.ADD_PDF_COURSES: {
+      const { courses } = action.payload;
+      let currBoard = [...state];
+      for (var val of courses) {
+        var newCourse = {
+          id: uuid(),
+          valid: '1',
+          courseName: val,
+          manualApprove: true
+        };
+        // first year (prior row), others course list (third column)
+        currBoard[0].semesters[2].courses.push(newCourse); 
+      }
+      return currBoard;
     }
 
     case actionTypes.DRAG_EVENT: {

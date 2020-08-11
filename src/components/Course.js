@@ -7,6 +7,7 @@ import { deleteCourse } from "../actions/courseActions";
 import { editCourse } from "../actions/courseActions";
 import Tooltip from '@material-ui/core/Tooltip';
 import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +54,8 @@ const Course = (props) => {
   const setValid = () => {
     setState({
       ...state,
-      manualApproved: !state.manualApproved
+      manualApproved: !state.manualApproved,
+      isHovering: !state.isHovering
     });
     console.log(state.manualApproved)
     dispatch(editCourse(yearIndex, semesterIndex, courseIndex));
@@ -86,12 +88,18 @@ const Course = (props) => {
                   valid === '1' ? '' :
                     <React.Fragment>
                       {valid}
-                      <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
                     </React.Fragment>
                 } placement="top-start">
                 <div className={valid === '1' ? classes.highlightCourseName : classes.invalidHighlight}>{coursePrefix}</div>
               </Tooltip>
               {courseName}
+              
+              {valid !== '1' ? <Tooltip interactive title="Manual Approve" placement="top-start">
+                <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
+              </Tooltip> : ''}
+              {state.manualApproved ? <Tooltip interactive title="Undo Approval" placement="top-start">
+                <IconButton size="small" onClick={setValid}><CloseIcon /></IconButton>
+              </Tooltip> : ''}
             </>
           }
           titleTypographyProps={{ variant: 'body2' }}

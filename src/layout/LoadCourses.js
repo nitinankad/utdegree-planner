@@ -10,6 +10,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import SchoolIcon from '@material-ui/icons/School';
 import { connect } from 'react-redux';
 import { setBoard } from "../actions/boardActions";
+import { addPDFCourses } from "../actions/boardActions";
 import Button from '@material-ui/core/Button';
 import degreeData from "../constants/degreePlans";
 import TextField from '@material-ui/core/TextField';
@@ -39,7 +40,8 @@ const LoadCourses = (props) => {
   const { dispatch } = props;
   const classes = useStyles();
   const [state, setState] = useState({
-    openMenu: false
+    openMenu: false,
+    needUpdate: false
   });
   const [open, setOpen] = useState({
     text: '',
@@ -69,6 +71,8 @@ const LoadCourses = (props) => {
   };
 
   const handleExport = () => {
+    // exports the board as a JSON object for importing later on
+    // currently sends out an alert from the dispatched function
     dispatch(exportCourses());
   }
 
@@ -86,9 +90,27 @@ const LoadCourses = (props) => {
 
   const handleLoadDegreePlan = (e, schoolIndex) => {
     const selectedDegreeName = e.target.textContent;
-    console.log(degreeData)
     dispatch(setBoard(degreeData[schoolIndex].degreePlans[selectedDegreeName]));
   };
+
+  const handleFileUpload = (e) => {
+    // fetch transcript parsing Python API, dispatch to backend
+    // when API call returns to update board, update state to 
+    // refresh frontend
+    console.log('file uploaded!');
+    var data = new FormData()
+    data.append('file', e.target.files[0])
+    fetch('https://salty-cove-22105.herokuapp.com/api/pdfParse', {
+      method: 'POST',
+      body: data
+    }).then(response => response.json()).then(data => {
+      dispatch(addPDFCourses(data));
+      setState({
+        ...state,
+        needUpdate: !state.needUpdate,
+      });
+    })
+  }
 
   return (
     <List>
@@ -96,7 +118,6 @@ const LoadCourses = (props) => {
         <ListItemIcon>
           <GetAppIcon />
         </ListItemIcon>
-
         <ListItemText primary={`Load courses`} />
         {state.openMenu ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
@@ -107,14 +128,12 @@ const LoadCourses = (props) => {
               <ListItem button className={classes.subheaderListItem}>
                 <ListItemText primary={school.schoolName} classes={{ primary: classes.listItemText }} />
               </ListItem>
-
               {Object.keys(school.degreePlans).map((degree, degreeIndex) => (
                 <div key={degree}>
                   <ListItem button className={classes.listItem} onClick={e => handleLoadDegreePlan(e, schoolIndex)}>
                     <ListItemIcon>
                       <SchoolIcon />
                     </ListItemIcon>
-
                     <ListItemText primary={degree} classes={{ primary: classes.listItemText }} />
                   </ListItem>
                 </div>
@@ -153,6 +172,21 @@ const LoadCourses = (props) => {
       </ListItem>
       <ListItem>
         <Button variant="contained" onClick={handleExport}>Export</Button>
+      </ListItem>
+      <ListItem>
+        <input
+          accept="application/pdf"
+          className={classes.input}
+          style={{ display: 'none' }}
+          id="file"
+          type="file"
+          onChange={e => handleFileUpload(e)}
+        />
+        <label htmlFor="file">
+          <Button variant="outlined" component="span" className={classes.button}>
+            Upload
+          </Button>
+        </label>
       </ListItem>
     </List >
   );
