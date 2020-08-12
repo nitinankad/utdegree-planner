@@ -40,13 +40,20 @@ const validateBoard = (board) => {
     var year = board[i]["semesters"];
     for (var j = 0; j < year.length; j++) {
       var sem = year[j]["courses"];
+      var total = 0;
       for (var k = 0; k < sem.length; k++) {
         if (sem[k].manualApprove === true) {
           sem[k]["valid"] = '1';
           continue;
         }
         var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
+        if(sem[k]["courseName"].match('0.0 Core Course')){
+          total += 3;
+        }
         if (name && name.length === 1) {
+          var creditHours = name[0].split(' ')[1].charAt(1) - '0';
+          total += creditHours;
+
           name = name[0].replace(' ', '').toLowerCase();
           
           var mapped = prereqMap[0][name];
@@ -63,8 +70,10 @@ const validateBoard = (board) => {
           }
         }
       }
+      year[j]["hours"] = total;
     }
   }
+  console.log(board);
 };
 
 // main logic for validating one course for a certain prerequisite

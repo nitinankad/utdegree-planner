@@ -6,7 +6,8 @@ import {
   CardContent,
   CardActions,
   Divider,
-  RootRef
+  RootRef,
+  Typography
 } from '@material-ui/core';
 import Course from './Course';
 import { Draggable, Droppable } from "react-beautiful-dnd";
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Semester = (props) => {
-  const { semesterName, courses, semesterId, yearIndex, semesterIndex } = props;
+  const { semesterName, courses, semesterId, yearIndex, semesterIndex, hours } = props;
   const classes = useStyles();
 
   return (
@@ -42,6 +43,11 @@ const Semester = (props) => {
       <CardHeader
         className={classes.cardHeaderStyle}
         title={semesterName}
+        subheader={
+          <Typography variant="caption">
+            {hours} Credit Hours
+          </Typography>
+        }
         titleTypographyProps={{ variant: 'h6' }}
       />
       <Divider />
