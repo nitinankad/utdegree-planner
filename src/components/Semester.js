@@ -70,6 +70,7 @@ const Semester = (props) => {
                         semesterIndex={semesterIndex}
                         courseIndex={index}
                         valid={course.valid === undefined ? '1' : course.valid}
+                        manualApprove={course.manualApprove}
                       />
                     </div>
                   )}

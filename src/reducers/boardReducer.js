@@ -42,20 +42,21 @@ const validateBoard = (board) => {
       var sem = year[j]["courses"];
       var total = 0;
       for (var k = 0; k < sem.length; k++) {
+        var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
         if (sem[k].manualApprove === true) {
           sem[k]["valid"] = '1';
+          if (name && name.length === 1)
+            total += name[0].split(' ')[1].charAt(1) - '0';
+          else
+            total += 3;
           continue;
-        }
-        var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
-        if(sem[k]["courseName"].match('0.0 Core Course')){
-          total += 3;
         }
         if (name && name.length === 1) {
           var creditHours = name[0].split(' ')[1].charAt(1) - '0';
           total += creditHours;
 
           name = name[0].replace(' ', '').toLowerCase();
-          
+
           var mapped = prereqMap[0][name];
           if (!mapped || Object.keys(mapped).length === 0) continue;
           var res = validateCourse(board, mapped, i, j);
@@ -68,6 +69,9 @@ const validateBoard = (board) => {
           } else {
             sem[k]["valid"] = '1';
           }
+        } else {
+          // set default credit hours to 3
+          total += 3;
         }
       }
       year[j]["hours"] = total;
@@ -78,7 +82,7 @@ const validateBoard = (board) => {
 
 // main logic for validating one course for a certain prerequisite
 const validateReq = (board, course, yearId, semId, req) => {
-  if (course[req].startsWith("SPX")){
+  if (course[req].startsWith("SPX")) {
     console.log(course[req]);
     return false;
   }
@@ -93,7 +97,7 @@ const validateReq = (board, course, yearId, semId, req) => {
   for (var i = 0; i <= yearId; i++) {
     var year = board[i]["semesters"];
     // scans all courses in years < current year, then scan all courses in semester < current semester
-    var limit = i === yearId ? semId + add : year.length; 
+    var limit = i === yearId ? semId + add : year.length;
     for (var j = 0; j < limit; j++) {
       var sem = year[j]["courses"];
       for (var k = 0; k < sem.length; k++) {
@@ -299,7 +303,7 @@ const boardReducer = (state = boardData, action) => {
           manualApprove: true
         };
         // first year (prior row), others course list (third column)
-        currBoard[0].semesters[2].courses.push(newCourse); 
+        currBoard[0].semesters[2].courses.push(newCourse);
       }
       return currBoard;
     }

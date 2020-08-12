@@ -41,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Course = (props) => {
-  let { dispatch, courseName, yearIndex, semesterIndex, courseIndex, valid } = props;
+  let { dispatch, courseName, yearIndex, semesterIndex, courseIndex, valid, manualApprove } = props;
   const classes = useStyles();
-  const [state, setState] = useState({ isHovering: false, manualApproved: false });
+  const [state, setState] = useState({ isHovering: false, manualApproved: manualApprove });
   const handleHover = () => {
     setState({
       ...state,
