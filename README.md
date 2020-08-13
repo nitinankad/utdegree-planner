@@ -15,6 +15,10 @@
 - Load sample four-year degree plans
 - Autocomplete course names
 - Responsiveness for mobile support
+- Import / export degree plans
+- Display number of credit hours per semester
+- Validate course ordering
+- Load courses from unofficial transcript
 
 ## Setup
 1. Install the requirements with ```npm install```
