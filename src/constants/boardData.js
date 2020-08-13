@@ -1,4 +1,27 @@
+const AP = {
+  id: '0',
+  year: 'PRIOR',
+  semesters: [
+    {
+      id: '1000',
+      semesterName: 'Advanced Placement',
+      courses: []
+    },
+    {
+      id: '1001',
+      semesterName: 'Dual Enrollment',
+      courses: []
+    },
+    {
+      id: '1002',
+      semesterName: 'Others',
+      courses: []
+    }
+  ]
+}
+
 export default [
+  AP,
   {
     id: "100",
     year: "FRESHMAN",

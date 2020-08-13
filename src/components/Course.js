@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader } from "@material-ui/core";
+import { Card, CardHeader, IconButton } from "@material-ui/core";
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import { connect } from "react-redux";
 import { deleteCourse } from "../actions/courseActions";
+import { editCourse } from "../actions/courseActions";
+import Tooltip from '@material-ui/core/Tooltip';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     display: 'inline',
   },
-
+  invalidHighlight: {
+    color: 'red',
+    fontWeight: 700,
+    display: 'inline',
+  },
   showDelete: {
     display: 'block',
     width: 4,
@@ -26,23 +34,32 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 17,
   },
   hideDelete: {
-	[theme.breakpoints.up('md')]: {
-		display: 'none',
-	},
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   }
 }));
 
 const Course = (props) => {
-  let { dispatch, courseName, yearIndex, semesterIndex, courseIndex } = props;
+  let { dispatch, courseName, yearIndex, semesterIndex, courseIndex, valid, manualApprove } = props;
   const classes = useStyles();
-  const [state, setState] = useState({isHovering: false});
-
+  const [state, setState] = useState({ isHovering: false, manualApproved: manualApprove });
   const handleHover = () => {
     setState({
       ...state,
       isHovering: !state.isHovering
     });
   };
+
+  const setValid = () => {
+    setState({
+      ...state,
+      manualApproved: !state.manualApproved,
+      isHovering: !state.isHovering
+    });
+    console.log(state.manualApproved)
+    dispatch(editCourse(yearIndex, semesterIndex, courseIndex));
+  }
 
   const handleDelete = () => {
     dispatch(deleteCourse(yearIndex, semesterIndex, courseIndex));
@@ -66,11 +83,26 @@ const Course = (props) => {
         <CardHeader
           title={
             <>
-              <div className={classes.highlightCourseName}>{coursePrefix}</div>
+              <Tooltip interactive
+                title={
+                  valid === '1' ? '' :
+                    <React.Fragment>
+                      {valid}
+                    </React.Fragment>
+                } placement="top-start">
+                <div className={valid === '1' ? classes.highlightCourseName : classes.invalidHighlight}>{coursePrefix}</div>
+              </Tooltip>
               {courseName}
+              
+              {valid !== '1' ? <Tooltip interactive title="Manual Approve" placement="top-start">
+                <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
+              </Tooltip> : ''}
+              {state.manualApproved ? <Tooltip interactive title="Undo Approval" placement="top-start">
+                <IconButton size="small" onClick={setValid}><CloseIcon /></IconButton>
+              </Tooltip> : ''}
             </>
           }
-          titleTypographyProps={{ variant:'body2' }}
+          titleTypographyProps={{ variant: 'body2' }}
           action={
             <>
               <div className={state.isHovering ? classes.showDelete : classes.hideDelete} onClick={handleDelete}>
@@ -78,7 +110,7 @@ const Course = (props) => {
               </div>
             </>
           }
-          style={{padding: 10}}
+          style={{ padding: 10 }}
         >
         </CardHeader>
       </Card>
