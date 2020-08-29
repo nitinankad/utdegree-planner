@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import Graph from "react-graph-vis";
 import { setBoard } from "../actions/boardActions";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -58,18 +60,19 @@ const PrereqGraph = (props) => {
                 for (var semester of year["semesters"]) {
                     for (var course of semester["courses"]) {
                         var pre = course["courseName"].match("[A-Z]+ [0-9]+")
-                        if(!pre) 
-                            pre=[course["courseName"].substring(0, 10)+".."]
+                        if (!pre)
+                            pre = [course["courseName"]]
                         if (pre) {
-                            nodepends.push({id:pre[0],level:semId});
+                            nodepends.push({ id: pre[0], level: semId });
                             if (course["Prereq"]) { //  || course["Coreq"]
                                 nodepends.pop();
                                 if (!(pre[0] in dd)) {
                                     dd[pre[0]] = { id: id++, taken: true };
-                                    if(first[semId] == -1){
+                                    if (first[semId] == -1) {
                                         first[semId] = dd[pre[0]]["id"];
                                     }
                                     graph["nodes"].push({ id: id - 1, shape: "box", label: pre[0], title: pre[0], color: "#00FF00", level: semId });
+                                    graph["edges"].push({ from: id - 1, to: first[semId], color: { opacity: 0 } });
                                 }
                                 var prereqs = [];
                                 var coreqs = [];
@@ -101,15 +104,16 @@ const PrereqGraph = (props) => {
                             }
                         }
                     }
-                    if(semester["courses"].length != 0) semId++;
+                    if (semester["courses"].length != 0) semId++;
                 }
             }
             for (var no of nodepends) {
                 var level = no["level"]
                 no = no["id"]
                 dd[no] = { id: oid++, taken: true };
-                graph["nodes"].push({ id: oid - 1, shape: "box", label: no, title: no, color: "cyan", level:level });
-                graph["edges"].push({ from: oid - 1, to: first[level], color: { "opacity": 0.9 } });
+                graph["nodes"].push({ id: oid - 1, shape: "box", label: no, title: no, color: "cyan", level: level });
+                graph["edges"].push({ from: oid - 1, to: first[level], color: { "opacity": 0.0 }, length: 150, arrows: "" });
+                first[level] = oid - 1; // this is smart
             }
         } else {
             alert('Please fix your prerequisites!');
@@ -131,14 +135,23 @@ const PrereqGraph = (props) => {
                 direction: "UD",
                 sortMethod: "directed",
                 parentCentralization: false,
-                nodeSpacing: 15
+                nodeSpacing: 10,
+                levelSeparation: 90
             }
         },
         edges: {
             smooth: true,
             color: "#000000"
         },
-        height: '1400px',
+        height: '800px',
+        width: '100%',
+        physics: {
+            hierarchicalRepulsion: {
+                springConstant: 0.000001,
+                nodeDistance: 55,
+                avoidOverlap: 1
+            }
+        }
     };
 
     const events = {
@@ -147,14 +160,26 @@ const PrereqGraph = (props) => {
         }
     };
 
+    const _exportPdf = () => {
+        html2canvas(document.getElementsByClassName("vis-network")[0]).then(canvas => {
+            // document.body.appendChild(canvas);  // if you want see your screenshot in body.
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save("download.pdf");
+        });
+    }
+
     return (
         <main className={classes.root}>
             <div className={classes.toolbar} />
             <Button variant="contained" color="primary" onClick={handleClick}>Go Back</Button>
+            <Button onClick={_exportPdf}>Export</Button>
             <Graph
                 graph={graph}
                 options={options}
                 events={events}
+                id="canvas"
                 getNetwork={network => {
 
                 }}
