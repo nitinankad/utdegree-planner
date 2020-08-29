@@ -8,3 +8,12 @@ export const setBoard = (newBoard) => {
     }
   }
 };
+
+export const addPDFCourses = (courses) => {
+  return {
+    type: actionTypes.ADD_PDF_COURSES,
+    payload: {
+      courses
+    }
+  }
+};

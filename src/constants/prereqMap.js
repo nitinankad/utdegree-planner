@@ -1,7 +1,7 @@
 export default [
     {
         "acct2302": {
-            "Prereq": "SPX Prerequisite: ACCT 2301 with a grade of C or better"
+            "Prereq": "ACCT 2301 "
         },
         "acct3100": {
             "Prereq": "BA 1100"
@@ -241,25 +241,25 @@ export default [
             "Prereq": "ATCM 2310"
         },
         "atcm3305": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3306": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3307": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3308": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3309": {
             "Prereq": "SPX Prerequisites: (ATCM 2310 with a grade of C or better) and department consent required"
         },
         "atcm3310": {
-            "Prereq": "SPX Prerequisites: CS 1335 and (ATCM 2310 with a grade of C or better)"
+            "Prereq": "CS 1335 and (ATCM 2310 )"
         },
         "atcm3311": {
-            "Prereq": "SPX Prerequisites: CS 1335 and (ATCM 2310 with a grade of C or better)"
+            "Prereq": "CS 1335 and (ATCM 2310 )"
         },
         "atcm3312": {
             "Prereq": "SPX Prerequisites: ATCM 3306 and department consent required"
@@ -307,13 +307,13 @@ export default [
             "Prereq": "SPX Prerequisites: (ATCM 2355 or ATCM 3355) and department consent required"
         },
         "atcm3365": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3366": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3367": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3368": {
             "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better or Instructor consent required"
@@ -325,7 +325,7 @@ export default [
             "Prereq": "ATCM 3306"
         },
         "atcm3371": {
-            "Prereq": "SPX Prerequisite: ATCM 2310 with a grade of C or better"
+            "Prereq": "ATCM 2310 "
         },
         "atcm3372": {
             "Prereq": "ATCM 2345"
@@ -592,7 +592,7 @@ export default [
             "Prereq": "(BIOL 3301 and BIOL 3302) and (BIOL 3361 or CHEM 3361) and (BIOL 3362 or CHEM 3362)"
         },
         "biol4341": {
-            "Prereq": "SPX Prerequisite: BIOL 3301 with a grade of C or better"
+            "Prereq": "BIOL 3301 "
         },
         "biol4345": {
             "Prereq": "SPX Prerequisites: CHEM 2323 and CHEM 2325 (Organic Chemistry I and II)"
@@ -673,7 +673,7 @@ export default [
             "Coreq": "BMEN 4310"
         },
         "bmen3220": {
-            "Prereq": "SPX Corequisite or Prerequisite: CS 1324"
+            "Prereq": "CS 1324"
         },
         "bmen3302": {
             "Prereq": "BMEN 1208 and ENGR 3300"
@@ -769,7 +769,7 @@ export default [
             "Prereq": "SPX Prerequisite: ALEKS score required or MATH 2312 with a grade of C or better"
         },
         "ce2336": {
-            "PreOrCoreq": "SPX Prerequisite or Corequisite: (CE 2305 or CS 2305) with a grade of C or better"
+            "PreOrCoreq": "(CE 2305 or CS 2305) "
         },
         "ce3120": {
             "Prereq": "RHET 1302"
@@ -1153,25 +1153,25 @@ export default [
             "Prereq": "CS 1335 or CE 1337 or CS 1337"
         },
         "cs2336": {
-            "PreOrCoreq": "SPX Prerequisite or Corequisite: (CE 2305 or CS 2305) with a grade of C or better"
+            "PreOrCoreq": "(CE 2305 or CS 2305) "
         },
         "cs2337": {
-            "PreOrCoreq": "SPX Prerequisite or Corequisite: (CE 2305 or CS 2305) with a grade of C or better"
+            "PreOrCoreq": "(CE 2305 or CS 2305) "
         },
         "cs3149": {
-            "Prereq": "SPX Prerequisites: (CE 2336 or CS 2336 or CS 2337) with a grade of C or better and CS 3305 with a grade of C or better"
+            "Prereq": "(CE 2336 or CS 2336 or CS 2337)  and CS 3305 "
         },
         "cs3162": {
             "PreOrCoreq": "CS 3345 and CS 3354"
         },
         "cs3305": {
-            "Prereq": "SPX Prerequisites: (CE 2305 or CS 2305) with a grade of C or better, and (MATH 2414 or MATH 2419)"
+            "Prereq": "(CE 2305 or CS 2305)  and (MATH 2414 or MATH 2419)"
         },
         "cs3333": {
             "Prereq": "SPX Prerequisite: CS 1335 or (CE 1337 or CS 1337) or equivalent programming experience"
         },
         "cs3341": {
-            "Prereq": "SPX Prerequisites: (MATH 1326 or MATH 2414 or MATH 2419), and (CE 2305 or CS 2305) with a grade of C or better"
+            "Prereq": "(MATH 1326 or MATH 2414 or MATH 2419) and (CE 2305 or CS 2305) "
         },
         "cs3345": {
             "PreOrCoreq": "(CS 3341 or SE 3341 or ENGR 3341)"
@@ -1222,7 +1222,7 @@ export default [
             "Prereq": "(CS 3340 or SE 3340)  and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)"
         },
         "cs4349": {
-            "Prereq": "SPX Prerequisites: CS 3305 with a grade of C or better, and (CE 3345 or CS 3345 or SE 3345)"
+            "Prereq": "CS 3305  and (CE 3345 or CS 3345 or SE 3345)"
         },
         "cs4361": {
             "Prereq": "MATH 2418 and (CE 2336 or CS 2336 or CS 2337) and (CE 3345 or CS 3345 or SE 3345) "
@@ -1243,7 +1243,7 @@ export default [
             "Prereq": "(CE 2336 or CS 2336 or CS 2337) "
         },
         "cs4384": {
-            "Prereq": "SPX Prerequisite: CS 3305 with a grade of C or better"
+            "Prereq": "CS 3305 "
         },
         "cs4386": {
             "Prereq": "(CE 3345 or CS 3345 or SE 3345) "
@@ -3232,7 +3232,7 @@ export default [
             "Prereq": "(CE 2305 or CS 2305) "
         },
         "se3341": {
-            "Prereq": "SPX Prerequisites: (MATH 1326 or MATH 2414 or MATH 2419), and (CE 2305 or CS 2305) with a grade of C or better"
+            "Prereq": "(MATH 1326 or MATH 2414 or MATH 2419) and (CE 2305 or CS 2305) "
         },
         "se3345": {
             "PreOrCoreq": "(CS 3341 or SE 3341 or ENGR 3341)"
@@ -3361,7 +3361,7 @@ export default [
             "Prereq": "MATH 2312 or MATH 1325 "
         },
         "stat3341": {
-            "Prereq": "SPX Prerequisites: (MATH 1326 or MATH 2414 or MATH 2419), and (CE 2305 or CS 2305) with a grade of C or better"
+            "Prereq": "(MATH 1326 or MATH 2414 or MATH 2419) and (CE 2305 or CS 2305) "
         },
         "stat3355": {
             "Prereq": "MATH 2415 or MATH 2419 "

@@ -11,6 +11,7 @@ import {
 import Course from './Course';
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import AddCourseButton from '../views/components/AddCourseButton';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   cardHeaderStyle: {
     textAlign: 'center',
     padding: 7,
+    cursor: 'pointer'
   },
   addCourse: {
     textTransform: 'none',
@@ -34,10 +36,16 @@ const useStyles = makeStyles((theme) => ({
 const Semester = (props) => {
   const { semesterName, courses, semesterId, yearIndex, semesterIndex } = props;
   const classes = useStyles();
+  let history = useHistory();
+
+  function handleClick() {
+    // history.push("/" + yearIndex + "/" + semesterIndex)
+  }
 
   return (
     <Card
       className={classes.root}
+      onClick={handleClick}
     >
         <CardHeader
             className={classes.cardHeaderStyle}
@@ -64,6 +72,7 @@ const Semester = (props) => {
                                             semesterIndex={semesterIndex}
                                             courseIndex={index}
                                             valid={course.valid === undefined ? '1' : course.valid}
+                                            manualApprove={course.manualApprove}
                                         />
                                     </div>
                                 )}
