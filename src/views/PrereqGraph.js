@@ -46,9 +46,11 @@ const PrereqGraph = (props) => {
 
     function init() {
         dispatch(setBoard(board));
-        if (board.valid) {
+        if (board.valid || true) { // TODO
             var id = 0;
+            var oid = 10001;
             var dd = {};
+            // graph["nodes"].push({ id: 10000, label: "Other", title: "Other", color: "#FF0000" });
             var nodepends = [];
             for (var year of board) {
                 for (var semester of year["semesters"]) {
@@ -84,14 +86,19 @@ const PrereqGraph = (props) => {
                                 }
                             } else {
                                 /*if (!(pre[0] in dd)) {
-                                    dd[pre[0]] = { id: id++, taken: true };
-                                    graph["nodes"].push({ id: id - 1, label: pre[0], title: pre[0], color: "#00FF00" });
-                                    // graph["edges"].push({ from: dd[pre[0]]["id"], to: 10000 });
+                                    dd[pre[0]] = { id: oid++, taken: true };
+                                    graph["nodes"].push({ id: oid - 1, label: pre[0], title: pre[0], color: "#00FF00" });
+                                    graph["edges"].push({ to: oid - 1 - 1, from: oid - 1 });
                                 }*/
                             }
                         }
                     }
                 }
+            }
+            for(var no of nodepends){
+                dd[no] = { id: oid++, taken: true };
+                graph["nodes"].push({ id: oid - 1, label: no, title: no, color: "cyan" });
+                graph["edges"].push({ from: oid - 1, to: (oid + 2) / 3 * 3, color: {"opacity": 0.2}});
             }
         } else {
             alert('Please fix your prerequisites!');
@@ -112,15 +119,15 @@ const PrereqGraph = (props) => {
             hierarchical: {
                 direction: "UD",
                 sortMethod: "directed",
-                parentCentralization: true,
-                nodeSpacing: 5
+                parentCentralization: false,
+                nodeSpacing: 50
             }
         },
         edges: {
             smooth: true,
             color: "#000000"
         },
-        height: '700px'
+        height: '1000px',
     };
 
     const events = {
@@ -138,7 +145,7 @@ const PrereqGraph = (props) => {
                 options={options}
                 events={events}
                 getNetwork={network => {
-                    //  if you want access to vis.js network api you can set the state in a parent component using this property
+                    
                 }}
             />
         </main>
