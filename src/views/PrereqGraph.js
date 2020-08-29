@@ -52,17 +52,24 @@ const PrereqGraph = (props) => {
             var dd = {};
             // graph["nodes"].push({ id: 10000, label: "Other", title: "Other", color: "#FF0000" });
             var nodepends = [];
+            var first = Array(20).fill(-1);
+            var semId = 1;
             for (var year of board) {
                 for (var semester of year["semesters"]) {
                     for (var course of semester["courses"]) {
                         var pre = course["courseName"].match("[A-Z]+ [0-9]+")
+                        if(!pre) 
+                            pre=[course["courseName"].substring(0, 10)+".."]
                         if (pre) {
-                            nodepends.push(pre[0]);
+                            nodepends.push({id:pre[0],level:semId});
                             if (course["Prereq"]) { //  || course["Coreq"]
                                 nodepends.pop();
                                 if (!(pre[0] in dd)) {
                                     dd[pre[0]] = { id: id++, taken: true };
-                                    graph["nodes"].push({ id: id - 1, label: pre[0], title: pre[0], color: "#00FF00" });
+                                    if(first[semId] == -1){
+                                        first[semId] = dd[pre[0]]["id"];
+                                    }
+                                    graph["nodes"].push({ id: id - 1, shape: "box", label: pre[0], title: pre[0], color: "#00FF00", level: semId });
                                 }
                                 var prereqs = [];
                                 var coreqs = [];
@@ -78,7 +85,7 @@ const PrereqGraph = (props) => {
                                     }
                                     if (!(oc in dd) && course["valid"] != "1") {
                                         dd[oc] = { id: id++, taken: false };
-                                        graph["nodes"].push({ id: id - 1, label: oc, title: oc, color: "#FF0000" });
+                                        graph["nodes"].push({ id: id - 1, shape: "box", label: oc, title: oc, color: "#FF0000", level: semId - 1 });
                                     }
                                     if (oc in dd) {
                                         graph["edges"].push({ from: dd[oc]["id"], to: dd[pre[0]]["id"] });
@@ -87,24 +94,28 @@ const PrereqGraph = (props) => {
                             } else {
                                 /*if (!(pre[0] in dd)) {
                                     dd[pre[0]] = { id: oid++, taken: true };
-                                    graph["nodes"].push({ id: oid - 1, label: pre[0], title: pre[0], color: "#00FF00" });
-                                    graph["edges"].push({ to: oid - 1 - 1, from: oid - 1 });
+                                    graph["nodes"].push({ id: dd[pre[0]], label: pre[0], title: pre[0], color: "#00FF00" });
+                                    graph["edges"].push({ from: dd[pre[0]], to: (dd[pre[0]] + 1) / 3 * 3 });
                                 }*/
+
                             }
                         }
                     }
+                    if(semester["courses"].length != 0) semId++;
                 }
             }
-            for(var no of nodepends){
+            for (var no of nodepends) {
+                var level = no["level"]
+                no = no["id"]
                 dd[no] = { id: oid++, taken: true };
-                graph["nodes"].push({ id: oid - 1, label: no, title: no, color: "cyan" });
-                graph["edges"].push({ from: oid - 1, to: (oid + 2) / 3 * 3, color: {"opacity": 0.2}});
+                graph["nodes"].push({ id: oid - 1, shape: "box", label: no, title: no, color: "cyan", level:level });
+                graph["edges"].push({ from: oid - 1, to: first[level], color: { "opacity": 0.9 } });
             }
         } else {
             alert('Please fix your prerequisites!');
             history.push("/")
         }
-
+        console.log(graph["nodes"])
 
     }
 
@@ -120,14 +131,14 @@ const PrereqGraph = (props) => {
                 direction: "UD",
                 sortMethod: "directed",
                 parentCentralization: false,
-                nodeSpacing: 50
+                nodeSpacing: 15
             }
         },
         edges: {
             smooth: true,
             color: "#000000"
         },
-        height: '1000px',
+        height: '1400px',
     };
 
     const events = {
@@ -145,7 +156,7 @@ const PrereqGraph = (props) => {
                 options={options}
                 events={events}
                 getNetwork={network => {
-                    
+
                 }}
             />
         </main>
