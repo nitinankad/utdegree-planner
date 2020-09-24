@@ -30,6 +30,7 @@ const Year = (props) => {
             semesterId={semester.id}
             yearIndex={yearIndex}
             semesterIndex={index}
+            hours={semester.hours}
           />
         </div>
       ))}
