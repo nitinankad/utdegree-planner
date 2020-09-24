@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, CssBaseline } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
 import { handleDrag } from '../actions/semesterActions';

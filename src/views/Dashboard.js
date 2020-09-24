@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { handleDrag } from '../actions/semesterActions';
 import Topbar from "../layout/Topbar";
 import Sidebar from "../layout/Sidebar";
 import Footer from "../layout/Footer";
@@ -12,9 +11,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   useParams,
-  useHistory,
 } from "react-router-dom";
 import PrereqGraph from './PrereqGraph';
 
