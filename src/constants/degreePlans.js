@@ -659,12 +659,12 @@ export default [
                 {
                   id: '60',
                   courseName: 'CE 4337 Organization of Programming Languages',
-                  Prereq: '((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 3340 or SE 3340 or CE 4304 or EE 4304)'
+                  Prereq: '((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 2340 or SE 3340 or CE 4304 or EE 4304)'
                 },
                 {
                   id: '61',
                   courseName: 'CE 4348 Operating Systems Concepts',
-                  Prereq: '(CS 3340 or SE 3340) and (CE 3345 or CS 3345 or SE 3345)'
+                  Prereq: '(CS 2340 or SE 3340) and (CE 3345 or CS 3345 or SE 3345)'
                 },
                 {
                   id: '62',
@@ -805,7 +805,7 @@ export default [
                 },
                 {
                   id: '23',
-                  courseName: 'CS 3340 Computer Architecture'
+                  courseName: 'CS 2340 Computer Architecture'
                 },
                 {
                   id: '24',
@@ -884,12 +884,12 @@ export default [
                 {
                   id: '38',
                   courseName: 'CS 4337 Organization of Programming Languages',
-                  Prereq: '((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 3340 or SE 3340 or CE 4304 or EE 4304)'
+                  Prereq: '((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 2340 or SE 3340 or CE 4304 or EE 4304)'
                 },
                 {
                   id: '39',
                   courseName: 'CS 4341 Digital Logic and Computer Design',
-                  Prereq: '(CE 2310 or EE 2310) or (CS 3340 or SE 3340) and PHYS 2326',
+                  Prereq: '(CE 2310 or EE 2310) or (CS 2340 or SE 3340) and PHYS 2326',
                   Coreq: 'CS 4141'
                 },
                 {
@@ -919,7 +919,7 @@ export default [
                 {
                   id: '45',
                   courseName: 'CS 4348 Operating Systems Concepts',
-                  Prereq: '(CS 3340 or SE 3340) and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)'
+                  Prereq: '(CS 2340 or SE 3340) and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)'
                 },
                 {
                   id: '46',
@@ -1877,7 +1877,7 @@ export default [
                 {
                   id: '38',
                   courseName: 'SE 4348 Operating Systems Concepts',
-                  Prereq: '(CS 3340 or SE 3340) and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)'
+                  Prereq: '(CS 2340 or SE 3340) and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)'
                 },
                 {
                   id: '39',
