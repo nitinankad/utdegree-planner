@@ -315,7 +315,7 @@ export default [
                 },
                 {
                   id: '54',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '55',
@@ -630,7 +630,7 @@ export default [
               courses: [
                 {
                   id: '54',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '55',
@@ -909,7 +909,7 @@ export default [
                 },
                 {
                   id: '43',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '44',
@@ -1236,7 +1236,7 @@ export default [
                 },
                 {
                   id: '47',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '48',
@@ -1572,7 +1572,7 @@ export default [
                 },
                 {
                   id: '45',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '46',
@@ -1891,7 +1891,7 @@ export default [
               courses: [
                 {
                   id: '41',
-                  courseName: 'ECS 3361 Social Issues and Ethics in Computer Science and Engineering'
+                  courseName: 'ECS 2361 Social Issues and Ethics in Computer Science and Engineering'
                 },
                 {
                   id: '42',
