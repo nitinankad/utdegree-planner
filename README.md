@@ -19,6 +19,7 @@
 - Display number of credit hours per semester
 - Validate course ordering
 - Load courses from unofficial transcript
+- Graph visualization of the degree plan
 
 ## Setup
 1. Install the requirements with ```npm install```
