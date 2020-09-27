@@ -20,6 +20,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { loadJsonCourses, exportCourses } from "../actions/courseActions";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   listItem: {
@@ -39,6 +40,13 @@ const useStyles = makeStyles(theme => ({
 const LoadCourses = (props) => {
   const { dispatch } = props;
   const classes = useStyles();
+  let history = useHistory();
+
+  function redirectGraph() {
+    // history.push("/" + yearIndex + "/" + semesterIndex)
+    history.push("/graph");
+  }
+
   const [state, setState] = useState({
     openMenu: false,
     needUpdate: false
@@ -187,6 +195,9 @@ const LoadCourses = (props) => {
             Upload
           </Button>
         </label>
+      </ListItem>
+      <ListItem>
+        <Button variant="contained" color="primary" onClick={redirectGraph}>Show Graph</Button>
       </ListItem>
     </List >
   );

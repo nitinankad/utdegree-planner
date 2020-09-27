@@ -36,6 +36,8 @@ const dragWithinSemester = (board, sourceList, sourceIndex, destinationIndex, so
 
 // validate all courses on the board
 const validateBoard = (board) => {
+  console.log(board);
+  var valid = true;
   for (var i = 0; i < board.length; i++) {
     var year = board[i]["semesters"];
     for (var j = 0; j < year.length; j++) {
@@ -62,6 +64,7 @@ const validateBoard = (board) => {
           var res = validateCourse(board, mapped, i, j);
 
           if (!res["result"]) {
+            valid = false;
             var reason = prereqMap[0][name][res["type"]];
             if (reason.startsWith("SPX"))
               reason = reason.split(": ")[1]
@@ -77,7 +80,7 @@ const validateBoard = (board) => {
       year[j]["hours"] = total;
     }
   }
-  console.log(board);
+  board.valid = valid;
 };
 
 // main logic for validating one course for a certain prerequisite

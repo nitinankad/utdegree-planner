@@ -823,10 +823,10 @@ export default [
             "Prereq": "CE 3320 or EE 3320"
         },
         "ce4337": {
-            "Prereq": "((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 3340 or SE 3340 or CE 4304 or EE 4304)"
+            "Prereq": "((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 2340 or SE 3340 or CE 4304 or EE 4304)"
         },
         "ce4348": {
-            "Prereq": "SPX Prerequisites: (CS 3340 or SE 3340 or equivalent), and (CE 3345 or CS 3345 or SE 3345), and a working knowledge of C and UNIX"
+            "Prereq": "SPX Prerequisites: (CS 2340 or SE 3340 or equivalent), and (CE 3345 or CS 3345 or SE 3345), and a working knowledge of C and UNIX"
         },
         "ce4370": {
             "Prereq": "CE 3320 or EE 3320"
@@ -1210,7 +1210,7 @@ export default [
             "Prereq": "(CE 2336 or CS 2336 or CS 2337) "
         },
         "cs4337": {
-            "Prereq": "((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 3340 or SE 3340 or CE 4304 or EE 4304)"
+            "Prereq": "((CE 2336 or CS 2336 or CS 2337) or CS 3333) and (CE 2305 or CS 2305) and (CS 2340 or SE 3340 or CE 4304 or EE 4304)"
         },
         "cs4341": {
             "Coreq": "CS 4141"
@@ -1219,7 +1219,7 @@ export default [
             "Prereq": "CE 3345 or CS 3345 or SE 3345"
         },
         "cs4348": {
-            "Prereq": "(CS 3340 or SE 3340)  and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)"
+            "Prereq": "(CS 2340 or SE 3340)  and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)"
         },
         "cs4349": {
             "Prereq": "CS 3305  and (CE 3345 or CS 3345 or SE 3345)"
@@ -3247,7 +3247,7 @@ export default [
             "Prereq": "CE 3345 or CS 3345 or SE 3345"
         },
         "se4348": {
-            "Prereq": "(CS 3340 or SE 3340)  and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)"
+            "Prereq": "(CS 2340 or SE 3340)  and (CS 3377 or SE 3377) and (CE 3345 or CS 3345 or SE 3345)"
         },
         "se4351": {
             "Prereq": "SPX Prerequisites: SE 3306 and (CE 3354 or CS 3354 or SE 3354) or instructor consent required"
