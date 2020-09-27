@@ -52,6 +52,7 @@ const PrereqGraph = (props) => {
             var id = 0;
             var oid = 10001;
             var dd = {};
+            // graph["nodes"].push({ id: 10000, label: "Other", title: "Other", color: "#FF0000" });
             var nodepends = [];
             var first = Array(20).fill(-1);
             var semId = 1;
@@ -73,7 +74,7 @@ const PrereqGraph = (props) => {
                                 graph["edges"].push({ from: id - 1, to: first[semId], color: { opacity: 0 } });
                             }
                             var prereqs = [];
-                            var coreqs = [];
+                            // var coreqs = [];
                             if (course["Prereq"])
                                 prereqs = Array.from(course["Prereq"].matchAll("[A-Z]+ [0-9]+"));
                             /*if(course["Coreq"])
@@ -146,7 +147,7 @@ const PrereqGraph = (props) => {
 
     const events = {
         select: function (event) {
-            var { nodes, edges } = event;
+            // var { nodes, edges } = event;
             // process events
         }
     };

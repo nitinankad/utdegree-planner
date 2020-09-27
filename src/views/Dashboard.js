@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = (props) => {
   const classes = useStyles();
   const [openSidebar, setSidebarState] = React.useState(false);
-  const { dispatch, board } = props;
+  const { board } = props;
 
   const toggleSidebar = () => {
     setSidebarState(!openSidebar);
@@ -84,7 +84,7 @@ const Dashboard = (props) => {
 }
 
 const Child = (props) => {
-  const { dispatch, board } = props;
+  const { board } = props;
   let { year, semester } = useParams();
   return (
     <SemesterPlan semester={board[year]["semesters"][semester]} yearIndex={year} semesterIndex={semester} />

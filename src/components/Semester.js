@@ -11,7 +11,7 @@ import {
 import Course from './Course';
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import AddCourseButton from '../views/components/AddCourseButton';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const Semester = (props) => {
   const { semesterName, courses, semesterId, yearIndex, semesterIndex } = props;
   const classes = useStyles();
-  let history = useHistory();
+  // let history = useHistory();
 
   function handleClick() {
     // history.push("/" + yearIndex + "/" + semesterIndex)
