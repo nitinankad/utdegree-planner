@@ -42,13 +42,21 @@ const validateBoard = (board) => {
     var year = board[i]["semesters"];
     for (var j = 0; j < year.length; j++) {
       var sem = year[j]["courses"];
+      var total = 0;
       for (var k = 0; k < sem.length; k++) {
+        var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
         if (sem[k].manualApprove === true) {
           sem[k]["valid"] = '1';
+          if (name && name.length === 1)
+            total += name[0].split(' ')[1].charAt(1) - '0';
+          else
+            total += 3;
           continue;
         }
-        var name = sem[k]["courseName"].match('[A-Z]+ [0-9]+')
         if (name && name.length === 1) {
+          var creditHours = name[0].split(' ')[1].charAt(1) - '0';
+          total += creditHours;
+
           name = name[0].replace(' ', '').toLowerCase();
 
           var mapped = prereqMap[0][name];
@@ -64,8 +72,12 @@ const validateBoard = (board) => {
           } else {
             sem[k]["valid"] = '1';
           }
+        } else {
+          // set default credit hours to 3
+          total += 3;
         }
       }
+      year[j]["hours"] = total;
     }
   }
   board.valid = valid;

@@ -6,7 +6,8 @@ import {
   CardContent,
   CardActions,
   Divider,
-  RootRef
+  RootRef,
+  Typography
 } from '@material-ui/core';
 import Course from './Course';
 import { Draggable, Droppable } from "react-beautiful-dnd";
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-	width: '100%',
+    width: '100%',
   },
   cardHeaderStyle: {
     textAlign: 'center',
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Semester = (props) => {
-  const { semesterName, courses, semesterId, yearIndex, semesterIndex } = props;
+  const { semesterName, courses, semesterId, yearIndex, semesterIndex, hours } = props;
   const classes = useStyles();
   // let history = useHistory();
 
@@ -47,52 +48,57 @@ const Semester = (props) => {
       className={classes.root}
       onClick={handleClick}
     >
-        <CardHeader
-            className={classes.cardHeaderStyle}
-            title={semesterName}
-            titleTypographyProps={{ variant: 'h6' }}
+      <CardHeader
+        className={classes.cardHeaderStyle}
+        title={semesterName}
+        subheader={
+          <Typography variant="caption">
+            {hours} Credit Hours
+          </Typography>
+        }
+        titleTypographyProps={{ variant: 'h6' }}
+      />
+      <Divider />
+
+      <Droppable droppableId={semesterId} type={`droppableSemester`}>
+        {provided => (
+          <RootRef rootRef={provided.innerRef}>
+            <CardContent>
+              {courses.map((course, index) => (
+                <Draggable key={course.id} draggableId={course.id} index={index}>
+                  {provided => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <Course
+                        courseName={course.courseName}
+                        yearIndex={yearIndex}
+                        semesterIndex={semesterIndex}
+                        courseIndex={index}
+                        valid={course.valid === undefined ? '1' : course.valid}
+                        manualApprove={course.manualApprove}
+                      />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </CardContent>
+          </RootRef>
+        )}
+
+      </Droppable>
+
+      <Divider />
+
+      <CardActions>
+        <AddCourseButton
+          yearIndex={yearIndex}
+          semesterIndex={semesterIndex}
         />
-        <Divider />
-
-        <Droppable droppableId={semesterId} type={`droppableSemester`}>
-            {provided => (
-                <RootRef rootRef={provided.innerRef}>
-                    <CardContent>
-                        {courses.map((course, index) => (
-                            <Draggable key={course.id} draggableId={course.id} index={index}>
-                                {provided => (
-                                    <div
-                                        ref={provided.innerRef}
-                                        {...provided.draggableProps}
-                                        {...provided.dragHandleProps}
-                                    >
-                                        <Course
-                                            courseName={course.courseName}
-                                            yearIndex={yearIndex}
-                                            semesterIndex={semesterIndex}
-                                            courseIndex={index}
-                                            valid={course.valid === undefined ? '1' : course.valid}
-                                            manualApprove={course.manualApprove}
-                                        />
-                                    </div>
-                                )}
-                            </Draggable>
-                        ))}
-                        {provided.placeholder}
-                    </CardContent>
-                </RootRef>
-            )}
-            
-        </Droppable>
-    
-        <Divider />
-
-        <CardActions>
-            <AddCourseButton
-              yearIndex={yearIndex}
-              semesterIndex={semesterIndex}
-            />
-        </CardActions>
+      </CardActions>
 
     </Card>
   );

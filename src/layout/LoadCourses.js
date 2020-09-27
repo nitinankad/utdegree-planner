@@ -79,6 +79,8 @@ const LoadCourses = (props) => {
   };
 
   const handleExport = () => {
+    // exports the board as a JSON object for importing later on
+    // currently sends out an alert from the dispatched function
     dispatch(exportCourses());
   }
 
@@ -100,6 +102,9 @@ const LoadCourses = (props) => {
   };
 
   const handleFileUpload = (e) => {
+    // fetch transcript parsing Python API, dispatch to backend
+    // when API call returns to update board, update state to 
+    // refresh frontend
     console.log('file uploaded!');
     var data = new FormData()
     data.append('file', e.target.files[0])
