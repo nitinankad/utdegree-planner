@@ -20,6 +20,7 @@
 - Validate course ordering
 - Load courses from unofficial transcript
 - Graph visualization of the degree plan
+- RateMyProfessor ratings + Grade distributions
 
 ## Setup
 1. Install the requirements with ```npm install```
