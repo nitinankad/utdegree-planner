@@ -190,7 +190,7 @@ const Course = (props) => {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        <div style={{ position: "absolute", width: 800, height: 600, overflow: "auto", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", borderRadius: "10px" }}>
+        <div style={{ position: "fixed", width: "100vw", height: "100vh", maxWidth: "800px", maxHeight: "600px", overflow: "auto", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", borderRadius: "10px" }}>
           <div style={{ textAlign: "center" }}>
             <div className={classes.highlightCourseName}>{coursePrefix}</div> {courseName}
           </div>
