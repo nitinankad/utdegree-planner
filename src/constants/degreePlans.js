@@ -22,6 +22,1397 @@ const AP = {
 
 export default [
   {
+    schoolName: "Behavioral and Brain Sciences",
+    // degreePlans: [
+    //     "Child Learning and Development",
+    //     "Cognitive Science",
+    //     "Neuroscience",
+    //     "Psychology",
+    //     "Speech-Language Pathology and Audiology",
+    // ]
+
+    degreePlans: {
+      'Child Learning and Development': [
+        AP,
+        {
+          "id":"1",
+          "year":"FRESHMAN",
+          "semesters":[
+             {
+                "id":"2",
+                "semesterName":"Fall semester",
+                "courses":[
+                   {
+                      "id":"4",
+                      "courseName":"010 Core Course"
+                   },
+                   {
+                      "id":"6",
+                      "courseName":"020 Core Course"
+                   },
+                   {
+                      "id":"8",
+                      "courseName":"050 Core Course"
+                   },
+                   {
+                      "id":"50",
+                      "courseName":"060 Core Course"
+                   },
+                   {
+                      "id":"51",
+                      "courseName":"PSY 2301 Introduction to Psychology"
+                   },
+                   {
+                      "id":"52",
+                      "courseName":"BBSU 1100 First Year Seminar"
+                   },
+                   {
+                      "id":"53",
+                      "courseName":"UNIV 1010 Freshman Seminar"
+                   },
+                ]
+             },
+             {
+                "id":"3",
+                "semesterName":"Spring semester",
+                "courses":[
+                   {
+                      "id":"5",
+                      "courseName":"010 Core Course"
+                   },
+                   {
+                      "id":"7",
+                      "courseName":"030 Core Course"
+                   },
+                   {
+                      "id":"54",
+                      "courseName":"040 Core Course"
+                   },
+                   {
+                      "id":"55",
+                      "courseName":"060 Core Course"
+                   },
+                   {
+                      "id":"56",
+                      "courseName":"PSY 2314 Lifespan Development"
+                   },
+                ]
+             },
+             {
+                "id":"9",
+                "semesterName":"Summer semester",
+                "courses":[
+                   
+                ]
+             }
+          ]
+       },
+       {
+          "id":"10",
+          "year":"SOPHOMORE",
+          "semesters":[
+             {
+                "id":"11",
+                "semesterName":"Fall semester",
+                "courses":[
+                   {
+                      "id":"13",
+                      "courseName":"070 Core Course"
+                   },
+                   {
+                      "id":"15",
+                      "courseName":"PSY 2317 Statistics for Psychology"
+                   },
+                   {
+                      "id":"17",
+                      "courseName":"CLDP 3310 Child Development"
+                   },
+                   {
+                      "id":"19",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"21",
+                      "courseName":"Elective"
+                   }
+                ]
+             },
+             {
+                "id":"12",
+                "semesterName":"Spring semester",
+                "courses":[
+                   {
+                      "id":"14",
+                      "courseName":"070 Core Course"
+                   },
+                   {
+                      "id":"16",
+                      "courseName":"030 Core Course"
+                   },
+                   {
+                      "id":"18",
+                      "courseName":"CLDP 3332 Social and Personality Development"
+                   },
+                   {
+                     "id": "57",
+                     "courseName": "PSY 3392 Research Design and Analysis"
+                   },
+                   {
+                      "id":"20",
+                      "courseName":"Elective"
+                   }
+                ]
+             },
+             {
+                "id":"22",
+                "semesterName":"Summer semester",
+                "courses":[
+                   
+                ]
+             }
+          ]
+       },
+       {
+          "id":"23",
+          "year":"JUNIOR",
+          "semesters":[
+             {
+                "id":"24",
+                "semesterName":"Fall semester",
+                "courses":[
+                   {
+                      "id":"26",
+                      "courseName":"CLDP 3362 Cognitive Development"
+                   },
+                   {
+                      "id":"28",
+                      "courseName":"CLDP 3394 Research and Evaluation Methods"
+                   },
+                   {
+                      "id":"29",
+                      "courseName":"CLDP Elective"
+                   },
+                   {
+                      "id":"31",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"33",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"35",
+                      "courseName":"UNIV 2020 Core Curriculum Assessment"
+                   }
+                ]
+             },
+             {
+                "id":"25",
+                "semesterName":"Spring semester",
+                "courses":[
+                   {
+                      "id":"27",
+                      "courseName":"CLDP 3303 Normal Language Development"
+                   },
+                   {
+                      "id":"30",
+                      "courseName":"CLDP Independent Study Option"
+                   },
+                   {
+                      "id":"32",
+                      "courseName":"CLDP Elective"
+                   },
+                   {
+                      "id":"34",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"58",
+                      "courseName":"Elective"
+                   }
+                ]
+             },
+             {
+                "id":"36",
+                "semesterName":"Summer semester",
+                "courses":[
+                   
+                ]
+             }
+          ]
+       },
+       {
+          "id":"37",
+          "year":"SENIOR",
+          "semesters":[
+             {
+                "id":"38",
+                "semesterName":"Fall semester",
+                "courses":[
+                   {
+                      "id":"40",
+                      "courseName":"CLDP 3342 Exceptional Children"
+                   },
+                   {
+                      "id":"42",
+                      "courseName":"CLDP Elective"
+                   },
+                   {
+                      "id":"44",
+                      "courseName":"CLDP Elective"
+                   },
+                   {
+                      "id":"46",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"48",
+                      "courseName":"Elective"
+                   }
+                ]
+             },
+             {
+                "id":"39",
+                "semesterName":"Spring semester",
+                "courses":[
+                   {
+                      "id":"41",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"43",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"45",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"47",
+                      "courseName":"Elective"
+                   },
+                   {
+                      "id":"59",
+                      "courseName":"Elective"
+                   }
+                ]
+             },
+             {
+                "id":"49",
+                "semesterName":"Summer semester",
+                "courses":[
+                ]
+             }
+          ]
+       }
+      ],
+
+      'Cognitive Science': [
+        AP,
+        {
+          "id":"1",
+          "year":"FRESHMAN",
+          "semesters":[
+            {
+              "id":"2",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"4",
+                  "courseName":"CGS 2301 Cognitive Science"
+                },
+                {
+                  "id":"6",
+                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
+                },
+                {
+                  "id":"8",
+                  "courseName":"MATH 2413 Differential Calculus"
+                },
+                {
+                  "id":"10",
+                  "courseName":"PSY 2301 Introduction to Psychology"
+                },
+                {
+                  "id":"12",
+                  "courseName":"BBSU 1100 First Year Seminar"
+                },
+                {
+                  "id":"14",
+                  "courseName":"UNIV 1010 Freshman Seminar"
+                }
+              ]
+            },
+            {
+              "id":"3",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"5",
+                  "courseName":"CS 1337 Computer Science I"
+                },
+                {
+                  "id":"7",
+                  "courseName":"HIST 1302 United States History Survey from the Civil War"
+                },
+                {
+                  "id":"9",
+                  "courseName":"MATH 2414 Integral Calculus"
+                },
+                {
+                  "id":"11",
+                  "courseName":"GOVT 2306 State and Local Government"
+                },
+                {
+                  "id":"13",
+                  "courseName":"RHET 1302 Composition and Rhetoric"
+                }
+              ]
+            },
+            {
+              "id":"15",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"16",
+          "year":"SOPHOMORE",
+          "semesters":[
+            {
+              "id":"17",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"19",
+                  "courseName":"050 Core Course"
+                },
+                {
+                  "id":"21",
+                  "courseName":"MATH 2418 Linear Algebra"
+                },
+                {
+                  "id":"23",
+                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
+                },
+                {
+                  "id":"25",
+                  "courseName":"CS 2336 Computer Science II"
+                },
+                {
+                  "id":"27",
+                  "courseName":"CGS Concentration Elective"
+                }
+              ]
+            },
+            {
+              "id":"18",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"20",
+                  "courseName":"030 Core Course"
+                },
+                {
+                  "id":"22",
+                  "courseName":"040 Core Course"
+                },
+                {
+                  "id":"24",
+                  "courseName":"GOVT 2305 American National Government"
+                },
+                {
+                  "id":"26",
+                  "courseName":"CS 2305 Discrete Mathematics for Computing I"
+                },
+                {
+                  "id":"28",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"29",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"30",
+          "year":"JUNIOR",
+          "semesters":[
+            {
+              "id":"31",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"33",
+                  "courseName":"NSC 3361 Introduction to Neuroscience"
+                },
+                {
+                  "id":"35",
+                  "courseName":"PSY 2317 Statistics for Psychology"
+                },
+                {
+                  "id":"37",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"39",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"41",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"43",
+                  "courseName":" UNIV 2020  Core Curriculum Assessment"
+                }
+              ]
+            },
+            {
+              "id":"32",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"34",
+                  "courseName":"CGS 3361 Cognitive Psychology"
+                },
+                {
+                  "id":"36",
+                  "courseName":"PSY 3490 Accelerated Quantitative Methods"
+                },
+                {
+                  "id":"38",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"40",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"42",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"44",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"45",
+          "year":"SENIOR",
+          "semesters":[
+            {
+              "id":"46",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"48",
+                  "courseName":"CGS 3340 Experimental Projects in Cognitive Science"
+                },
+                {
+                  "id":"50",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"52",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"54",
+                  "courseName":"Upper Level Elective"
+                },
+                {
+                  "id":"56",
+                  "courseName":"Upper Level Elective"
+                }
+              ]
+            },
+            {
+              "id":"47",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"49",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"58",
+                  "courseName":"CGS Concentration Elective"
+                },
+                {
+                  "id":"51",
+                  "courseName":"Upper Level Elective"
+                },
+                {
+                  "id":"53",
+                  "courseName":"Upper Level Elective"
+                },
+                {
+                  "id":"55",
+                  "courseName":"Upper Level Elective"
+                }
+              ]
+            },
+            {
+              "id":"57",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        }
+      ],
+      
+      'Neuroscience': [
+        AP,
+        {
+          "id":"1",
+          "year":"FRESHMAN",
+          "semesters":[
+            {
+              "id":"2",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"4",
+                  "courseName":"020 Core Course"
+                },
+                {
+                  "id":"6",
+                  "courseName":"CHEM 1311 General Chemistry I"
+                },
+                {
+                  "id":"8",
+                  "courseName":"CHEM 1111 General Chemistry Laboratory I"
+                },
+                {
+                  "id":"10",
+                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
+                },
+                {
+                  "id":"12",
+                  "courseName":"PSY 2301 Introduction to Psychology"
+                },
+                {
+                  "id":"59",
+                  "courseName":"BBSU 1100 First Year Seminar"
+                },
+                {
+                  "id":"60",
+                  "courseName":"UNIV 1010 Freshman Seminar"
+                }
+              ]
+            },
+            {
+              "id":"3",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"5",
+                  "courseName":"020 Core Course"
+                },
+                {
+                  "id":"7",
+                  "courseName":"CHEM 1312 General Chemistry II W/lab"
+                },
+                {
+                  "id":"9",
+                  "courseName":"CHEM 1112 General Chemistry II W/lab"
+                },
+                {
+                  "id":"11",
+                  "courseName":"HIST 1302 United States History Survey from the Civil War"
+                },
+                {
+                  "id":"13",
+                  "courseName":"NSC 3361 Introduction to Neuroscience"
+                },
+                {
+                  "id":"61",
+                  "courseName":"RHET 1302 Rhetoric"
+                }
+              ]
+            },
+            {
+              "id":"14",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"15",
+          "year":"SOPHOMORE",
+          "semesters":[
+            {
+              "id":"16",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"18",
+                  "courseName":"040 Core Course"
+                },
+                {
+                  "id":"20",
+                  "courseName":"GOVT 2305 American National Government"
+                },
+                {
+                  "id":"22",
+                  "courseName":"BIOL 2311 Introduction to Modern Biology I"
+                },
+                {
+                  "id":"24",
+                  "courseName":"BIOL 2111 Introduction to Modern Biology Workshop I"
+                },
+                {
+                  "id":"26",
+                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
+                },
+                {
+                  "id":"27",
+                  "courseName":"NSC 4352 Cellular Neuroscience"
+                }
+              ]
+            },
+            {
+              "id":"17",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"19",
+                  "courseName":"050 Core Course"
+                },
+                {
+                  "id":"21",
+                  "courseName":"GOVT 2306 State and Local Government"
+                },
+                {
+                  "id":"23",
+                  "courseName":"BIOL 2281 Introductory Biology Laboratory"
+                },
+                {
+                  "id":"25",
+                  "courseName":"PSY 2317 Statistics for Psychology"
+                },
+                {
+                  "id":"62",
+                  "courseName":"Elective"
+                },
+              ]
+            },
+            {
+              "id":"28",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"29",
+          "year":"JUNIOR",
+          "semesters":[
+            {
+              "id":"30",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"32",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"34",
+                  "courseName":"NSC 4354 Integrative Neuroscience"
+                },
+                {
+                  "id":"36",
+                  "courseName":"NSC Major Related Elective"
+                },
+                {
+                  "id":"38",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"40",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"42",
+                  "courseName":" UNIV 2020  Core Curriculum Assessment"
+                }
+              ]
+            },
+            {
+              "id":"31",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"33",
+                  "courseName":"NSC 4353 Neuroscience Laboratory Methods"
+                },
+                {
+                  "id":"35",
+                  "courseName":"NSC 4363 Neuropharmacology"
+                },
+                {
+                  "id":"37",
+                  "courseName":"NSC Major Related Elective"
+                },
+                {
+                  "id":"39",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"41",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"43",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"44",
+          "year":"SENIOR",
+          "semesters":[
+            {
+              "id":"45",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"47",
+                  "courseName":"NSC Major Related Elective"
+                },
+                {
+                  "id":"49",
+                  "courseName":"NSC Major Related Elective"
+                },
+                {
+                  "id":"51",
+                  "courseName":"Upper-Level Elective"
+                },
+                {
+                  "id":"53",
+                  "courseName":"Upper-Level Elective"
+                },
+                {
+                  "id":"57",
+                  "courseName":"NSC 4357 Neurobiology of Learning and Memory"
+                }
+              ]
+            },
+            {
+              "id":"46",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"48",
+                  "courseName":"NSC 4366 Neuroanatomy"
+                },
+                {
+                  "id":"50",
+                  "courseName":"NSC 4356 Neurophysiology"
+                },
+                {
+                  "id":"52",
+                  "courseName":"NSC Major Related Elective"
+                },
+                {
+                  "id":"54",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"56",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"58",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        }
+      ],
+      
+      'Psychology': [
+        AP,
+        {
+          "id":"1",
+          "year":"FRESHMAN",
+          "semesters":[
+            {
+              "id":"2",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"4",
+                  "courseName":"020 Core Course"
+                },
+                {
+                  "id":"6",
+                  "courseName":"030 Core Course"
+                },
+                {
+                  "id":"8",
+                  "courseName":"050 Core Course"
+                },
+                {
+                  "id":"52",
+                  "courseName":"060 Core Course"
+                },
+                {
+                  "id":"53",
+                  "courseName":"PSY 2301 Introduction to Psychology"
+                },
+                {
+                  "id":"54",
+                  "courseName":"BBSU 1100 First Year Seminar"
+                },
+                {
+                  "id":"55",
+                  "courseName":"UNIV 1010 Freshman Seminar"
+                },
+              ]
+            },
+            {
+              "id":"3",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"5",
+                  "courseName":"010 Core Course"
+                },
+                {
+                  "id":"7",
+                  "courseName":"030 Core Course"
+                },
+                {
+                  "id":"56",
+                  "courseName":"040 Core Course"
+                },
+                {
+                  "id":"57",
+                  "courseName":"060 Core Course"
+                },
+                {
+                  "id":"58",
+                  "courseName":"PSY 2314 Lifespan Development"
+                },
+              ]
+            },
+            {
+              "id":"9",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"10",
+          "year":"SOPHOMORE",
+          "semesters":[
+            {
+              "id":"11",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"13",
+                  "courseName":"010 Core Course"
+                },
+                {
+                  "id":"15",
+                  "courseName":"GOVT 2306 State and Local Government"
+                },
+                {
+                  "id":"17",
+                  "courseName":"PSY 2317 Statistics for Psychology"
+                },
+                {
+                  "id":"19",
+                  "courseName":"PSY 3310 Child Development"
+                },
+                {
+                  "id":"21",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"12",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"14",
+                  "courseName":"PSY 3331 Social Psychology"
+                },
+                {
+                  "id":"16",
+                  "courseName":"GOVT 2305 American National Government"
+                },
+                {
+                  "id":"18",
+                  "courseName":"PSY 3360 Historical Perspectives on Psychology: Mind and Machines since 1600"
+                },
+                {
+                  "id":"20",
+                  "courseName":"PSY 3392 Research Design and Analysis"
+                },
+                {
+                  "id":"22",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"23",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"24",
+          "year":"JUNIOR",
+          "semesters":[
+            {
+              "id":"25",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"27",
+                  "courseName":"PSY 3393 Experimental Projects in Psychology"
+                },
+                {
+                  "id":"29",
+                  "courseName":"PSY 3361 Cognitive Psychology"
+                },
+                {
+                  "id":"31",
+                  "courseName":"PSY Independent Study Option"
+                },
+                {
+                  "id":"33",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"35",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"36",
+                  "courseName":"UNIV 2020 Core Curriculum Assessment"
+                }
+              ]
+            },
+            {
+              "id":"26",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"28",
+                  "courseName":"NSC 3361 Introduction to Neuroscience"
+                },
+                {
+                  "id":"30",
+                  "courseName":"PSY Elective"
+                },
+                {
+                  "id":"32",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"34",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"37",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"38",
+          "year":"SENIOR",
+          "semesters":[
+            {
+              "id":"39",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"41",
+                  "courseName":"PSY 4343 Abnormal Psychology"
+                },
+                {
+                  "id":"43",
+                  "courseName":"PSY Elective"
+                },
+                {
+                  "id":"45",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"47",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"49",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"40",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"42",
+                  "courseName":"PSY Elective"
+                },
+                {
+                  "id":"44",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"46",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"48",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"50",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"51",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        }
+      ],
+      
+      'Speech-Language Pathology and Audiology': [
+        AP,
+        {
+          "id":"1",
+          "year":"FRESHMAN",
+          "semesters":[
+            {
+              "id":"2",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"4",
+                  "courseName":"030 Core Course"
+                },
+                {
+                  "id":"6",
+                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
+                },
+                {
+                  "id":"8",
+                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
+                },
+                {
+                  "id":"10",
+                  "courseName":"MATH 1306 College Algebra for the Non-Scientist"
+                },
+                {
+                  "id":"12",
+                  "courseName":"BBSU 1100 First Year Seminar"
+                },
+                {
+                  "id":"13",
+                  "courseName":"UNIV 1010 Freshman Seminar"
+                }
+              ]
+            },
+            {
+              "id":"3",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"5",
+                  "courseName":"030 Core Course"
+                },
+                {
+                  "id":"7",
+                  "courseName":"RHET 1302 Rhetoric"
+                },
+                {
+                  "id":"9",
+                  "courseName":"HIST 1302 United States History Survey from the Civil War"
+                },
+                {
+                  "id":"11",
+                  "courseName":"PSY 2301 Introduction to Psychology"
+                },
+                {
+                  "id":"55",
+                  "courseName":"PSY 2314 Lifespan Development"
+                }
+              ]
+            },
+            {
+              "id":"14",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"15",
+          "year":"SOPHOMORE",
+          "semesters":[
+            {
+              "id":"16",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"18",
+                  "courseName":"GOVT 2306 State and Local Government"
+                },
+                {
+                  "id":"20",
+                  "courseName":"HUMA 1301 Exploration of Humanities"
+                },
+                {
+                  "id":"22",
+                  "courseName":"PSY 2317 Statistics for Psychology"
+                },
+                {
+                  "id":"56",
+                  "courseName":"SPAU 3301 Communication Disorders"
+                },
+                {
+                  "id":"57",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"17",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"19",
+                  "courseName":"GOVT 2305 American National Government"
+                },
+                {
+                  "id":"21",
+                  "courseName":"ARTS 1301 Exploration of the Arts"
+                },
+                {
+                  "id":"23",
+                  "courseName":"SPAU 3344 Anatomy and Physiology of Speech and Hearing"
+                },
+                {
+                  "id":"58",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"59",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"24",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"25",
+          "year":"JUNIOR",
+          "semesters":[
+            {
+              "id":"26",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"28",
+                  "courseName":"SPAU 3303 Normal Language Development"
+                },
+                {
+                  "id":"30",
+                  "courseName":"SPAU 3343 Phonetics"
+                },
+                {
+                  "id":"32",
+                  "courseName":"SPAU 3342 Exceptional Children"
+                },
+                {
+                  "id":"34",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"36",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"38",
+                  "courseName":"UNIV 2020 Core Curriculum Assessment"
+                }
+              ]
+            },
+            {
+              "id":"27",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"29",
+                  "courseName":"SPAU 3340 Articulation Disorders"
+                },
+                {
+                  "id":"31",
+                  "courseName":"SPAU 3304 Communication Sciences"
+                },
+                {
+                  "id":"33",
+                  "courseName":"SPAU 4308 Language Disorders of Children"
+                },
+                {
+                  "id":"35",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"37",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"39",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        },
+        {
+          "id":"40",
+          "year":"SENIOR",
+          "semesters":[
+            {
+              "id":"41",
+              "semesterName":"Fall semester",
+              "courses":[
+                {
+                  "id":"43",
+                  "courseName":"SPAU 3341 Audiology"
+                },
+                {
+                  "id":"45",
+                  "courseName":"SPAU 3388 Clinical Observation in Speech-Language Pathology"
+                },
+                {
+                  "id":"46",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"48",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"50",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"52",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"42",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"44",
+                  "courseName":"SPAU 3345 Neural Basis of Communication"
+                },
+                {
+                  "id":"47",
+                  "courseName":"SPAU 4393 Language in Culture and Society"
+                },
+                {
+                  "id":"49",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"51",
+                  "courseName":"Elective"
+                },
+                {
+                  "id":"53",
+                  "courseName":"Elective"
+                }
+              ]
+            },
+            {
+              "id":"54",
+              "semesterName":"Summer semester",
+              "courses":[
+                
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     schoolName: "Engineering and Computer Science",
     // degreePlans: [
     //     "Biomedical Engineering",
@@ -1996,294 +3387,12 @@ export default [
     }
   },
   {
-    schoolName: "Behavioral and Brain Sciences",
-    // degreePlans: [
-    //     "Child Learning and Development",
-    //     "Cognitive Science",
-    //     "Neuroscience",
-    //     "Psychology",
-    //     "Speech-Language Pathology and Audiology",
-    // ]
+    schoolName: "Jindal School of Management",
 
     degreePlans: {
-      'Child Learning and Development': [
+      "Information Technology and Systems": [
         AP,
-      	{
-          "id":"1",
-          "year":"FRESHMAN",
-          "semesters":[
-             {
-                "id":"2",
-                "semesterName":"Fall semester",
-                "courses":[
-                   {
-                      "id":"4",
-                      "courseName":"010 Core Course"
-                   },
-                   {
-                      "id":"6",
-                      "courseName":"020 Core Course"
-                   },
-                   {
-                      "id":"8",
-                      "courseName":"050 Core Course"
-                   },
-                   {
-                      "id":"50",
-                      "courseName":"060 Core Course"
-                   },
-                   {
-                      "id":"51",
-                      "courseName":"PSY 2301 Introduction to Psychology"
-                   },
-                   {
-                      "id":"52",
-                      "courseName":"BBSU 1100 First Year Seminar"
-                   },
-                   {
-                      "id":"53",
-                      "courseName":"UNIV 1010 Freshman Seminar"
-                   },
-                ]
-             },
-             {
-                "id":"3",
-                "semesterName":"Spring semester",
-                "courses":[
-                   {
-                      "id":"5",
-                      "courseName":"010 Core Course"
-                   },
-                   {
-                      "id":"7",
-                      "courseName":"030 Core Course"
-                   },
-                   {
-                      "id":"54",
-                      "courseName":"040 Core Course"
-                   },
-                   {
-                      "id":"55",
-                      "courseName":"060 Core Course"
-                   },
-                   {
-                      "id":"56",
-                      "courseName":"PSY 2314 Lifespan Development"
-                   },
-                ]
-             },
-             {
-                "id":"9",
-                "semesterName":"Summer semester",
-                "courses":[
-                   
-                ]
-             }
-          ]
-       },
-       {
-          "id":"10",
-          "year":"SOPHOMORE",
-          "semesters":[
-             {
-                "id":"11",
-                "semesterName":"Fall semester",
-                "courses":[
-                   {
-                      "id":"13",
-                      "courseName":"070 Core Course"
-                   },
-                   {
-                      "id":"15",
-                      "courseName":"PSY 2317 Statistics for Psychology"
-                   },
-                   {
-                      "id":"17",
-                      "courseName":"CLDP 3310 Child Development"
-                   },
-                   {
-                      "id":"19",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"21",
-                      "courseName":"Elective"
-                   }
-                ]
-             },
-             {
-                "id":"12",
-                "semesterName":"Spring semester",
-                "courses":[
-                   {
-                      "id":"14",
-                      "courseName":"070 Core Course"
-                   },
-                   {
-                      "id":"16",
-                      "courseName":"030 Core Course"
-                   },
-                   {
-                      "id":"18",
-                      "courseName":"CLDP 3332 Social and Personality Development"
-                   },
-                   {
-                     "id": "57",
-                     "courseName": "PSY 3392 Research Design and Analysis"
-                   },
-                   {
-                      "id":"20",
-                      "courseName":"Elective"
-                   }
-                ]
-             },
-             {
-                "id":"22",
-                "semesterName":"Summer semester",
-                "courses":[
-                   
-                ]
-             }
-          ]
-       },
-       {
-          "id":"23",
-          "year":"JUNIOR",
-          "semesters":[
-             {
-                "id":"24",
-                "semesterName":"Fall semester",
-                "courses":[
-                   {
-                      "id":"26",
-                      "courseName":"CLDP 3362 Cognitive Development"
-                   },
-                   {
-                      "id":"28",
-                      "courseName":"CLDP 3394 Research and Evaluation Methods"
-                   },
-                   {
-                      "id":"29",
-                      "courseName":"CLDP Elective"
-                   },
-                   {
-                      "id":"31",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"33",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"35",
-                      "courseName":"UNIV 2020 Core Curriculum Assessment"
-                   }
-                ]
-             },
-             {
-                "id":"25",
-                "semesterName":"Spring semester",
-                "courses":[
-                   {
-                      "id":"27",
-                      "courseName":"CLDP 3303 Normal Language Development"
-                   },
-                   {
-                      "id":"30",
-                      "courseName":"CLDP Independent Study Option"
-                   },
-                   {
-                      "id":"32",
-                      "courseName":"CLDP Elective"
-                   },
-                   {
-                      "id":"34",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"58",
-                      "courseName":"Elective"
-                   }
-                ]
-             },
-             {
-                "id":"36",
-                "semesterName":"Summer semester",
-                "courses":[
-                   
-                ]
-             }
-          ]
-       },
-       {
-          "id":"37",
-          "year":"SENIOR",
-          "semesters":[
-             {
-                "id":"38",
-                "semesterName":"Fall semester",
-                "courses":[
-                   {
-                      "id":"40",
-                      "courseName":"CLDP 3342 Exceptional Children"
-                   },
-                   {
-                      "id":"42",
-                      "courseName":"CLDP Elective"
-                   },
-                   {
-                      "id":"44",
-                      "courseName":"CLDP Elective"
-                   },
-                   {
-                      "id":"46",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"48",
-                      "courseName":"Elective"
-                   }
-                ]
-             },
-             {
-                "id":"39",
-                "semesterName":"Spring semester",
-                "courses":[
-                   {
-                      "id":"41",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"43",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"45",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"47",
-                      "courseName":"Elective"
-                   },
-                   {
-                      "id":"59",
-                      "courseName":"Elective"
-                   }
-                ]
-             },
-             {
-                "id":"49",
-                "semesterName":"Summer semester",
-                "courses":[
-                ]
-             }
-          ]
-       }
-      ],
-
-      'Cognitive Science': [
-      	AP,
-      	{
+        {
           "id":"1",
           "year":"FRESHMAN",
           "semesters":[
@@ -2293,26 +3402,26 @@ export default [
               "courses":[
                 {
                   "id":"4",
-                  "courseName":"CGS 2301 Cognitive Science"
+                  "courseName":"010 Core Course"
                 },
                 {
                   "id":"6",
-                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
+                  "courseName":"060 Core Course"
                 },
                 {
                   "id":"8",
-                  "courseName":"MATH 2413 Differential Calculus"
+                  "courseName":"MATH 1325 Applied Calculus I"
                 },
                 {
                   "id":"10",
-                  "courseName":"PSY 2301 Introduction to Psychology"
+                  "courseName":"BLAW 2301 Business and Public Law"
                 },
                 {
-                  "id":"12",
-                  "courseName":"BBSU 1100 First Year Seminar"
+                  "id":"11",
+                  "courseName":"BCOM 1300 Introduction to Professionalism and Communication in Business"
                 },
                 {
-                  "id":"14",
+                  "id":"13",
                   "courseName":"UNIV 1010 Freshman Seminar"
                 }
               ]
@@ -2323,23 +3432,23 @@ export default [
               "courses":[
                 {
                   "id":"5",
-                  "courseName":"CS 1337 Computer Science I"
+                  "courseName":"010 Core Course"
                 },
                 {
                   "id":"7",
-                  "courseName":"HIST 1302 United States History Survey from the Civil War"
+                  "courseName":"060 Core Course"
                 },
                 {
                   "id":"9",
-                  "courseName":"MATH 2414 Integral Calculus"
+                  "courseName":"BA 1320 Business in a Global World"
                 },
                 {
-                  "id":"11",
-                  "courseName":"GOVT 2306 State and Local Government"
+                  "id":"12",
+                  "courseName":"MATH 1326 Applied Calculus II"
                 },
                 {
-                  "id":"13",
-                  "courseName":"RHET 1302 Composition and Rhetoric"
+                  "id":"14",
+                  "courseName":"OPRE 3333 Quantitative Business Analysis"
                 }
               ]
             },
@@ -2362,23 +3471,23 @@ export default [
               "courses":[
                 {
                   "id":"19",
-                  "courseName":"050 Core Course"
+                  "courseName":"030 Core Course"
                 },
                 {
                   "id":"21",
-                  "courseName":"MATH 2418 Linear Algebra"
+                  "courseName":"040 Core Course"
                 },
                 {
                   "id":"23",
-                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
+                  "courseName":"ACCT 2301 Introductory Financial Accounting"
                 },
                 {
                   "id":"25",
-                  "courseName":"CS 2336 Computer Science II"
+                  "courseName":"GOVT 2305 American National Government"
                 },
                 {
                   "id":"27",
-                  "courseName":"CGS Concentration Elective"
+                  "courseName":"BA 1310 Making Choices in Free Market Systems"
                 }
               ]
             },
@@ -2392,19 +3501,23 @@ export default [
                 },
                 {
                   "id":"22",
-                  "courseName":"040 Core Course"
+                  "courseName":"050 Core Course"
                 },
                 {
                   "id":"24",
-                  "courseName":"GOVT 2305 American National Government"
+                  "courseName":"ACCT 2302 Introductory Management Accounting"
                 },
                 {
                   "id":"26",
-                  "courseName":"CS 2305 Discrete Mathematics for Computing I"
+                  "courseName":"GOVT 2306 State and Local Government"
                 },
                 {
                   "id":"28",
-                  "courseName":"Elective"
+                  "courseName":"ITSS 3300 Information Technology for Business"
+                },
+                {
+                  "id":"58",
+                  "courseName":"ITSS 3311 Introduction to Programming"
                 }
               ]
             },
@@ -2427,27 +3540,27 @@ export default [
               "courses":[
                 {
                   "id":"33",
-                  "courseName":"NSC 3361 Introduction to Neuroscience"
+                  "courseName":"FIN 3320 Business Finance"
                 },
                 {
                   "id":"35",
-                  "courseName":"PSY 2317 Statistics for Psychology"
+                  "courseName":"OPRE 3360 Managerial Methods in Decision Making Under Uncertainty"
                 },
                 {
                   "id":"37",
-                  "courseName":"CGS Concentration Elective"
+                  "courseName":"ITSS 3312 Object-Oriented Programming"
                 },
                 {
                   "id":"39",
-                  "courseName":"Elective"
+                  "courseName":"MKT 3300 Principles of Marketing"
                 },
                 {
                   "id":"41",
-                  "courseName":"Elective"
+                  "courseName":"ITSS 4300 Database Fundamentals"
                 },
                 {
                   "id":"43",
-                  "courseName":" UNIV 2020  Core Curriculum Assessment"
+                  "courseName":"UNIV 2020 Core Curriculum Assessment"
                 }
               ]
             },
@@ -2457,28 +3570,32 @@ export default [
               "courses":[
                 {
                   "id":"34",
-                  "courseName":"CGS 3361 Cognitive Psychology"
+                  "courseName":"BCOM 4300 Managing Communications in Business"
                 },
                 {
                   "id":"36",
-                  "courseName":"PSY 3490 Accelerated Quantitative Methods"
+                  "courseName":"OBHR 3310 Organizational Behavior"
                 },
                 {
                   "id":"38",
-                  "courseName":"CGS Concentration Elective"
+                  "courseName":"ITSS 4330 Systems Analysis amd Design"
                 },
                 {
                   "id":"40",
-                  "courseName":"CGS Concentration Elective"
+                  "courseName":"ITSS 4351 Foundations of Business Intelligence"
                 },
                 {
                   "id":"42",
-                  "courseName":"Elective"
+                  "courseName":"Upper Level Guided Elective"
+                },
+                {
+                  "id":"44",
+                  "courseName":"ITSS 4090 Information Technology and Systems Internship"
                 }
               ]
             },
             {
-              "id":"44",
+              "id":"45",
               "semesterName":"Summer semester",
               "courses":[
                 
@@ -2487,895 +3604,63 @@ export default [
           ]
         },
         {
-          "id":"45",
+          "id":"46",
           "year":"SENIOR",
           "semesters":[
             {
-              "id":"46",
+              "id":"47",
               "semesterName":"Fall semester",
               "courses":[
                 {
-                  "id":"48",
-                  "courseName":"CGS 3340 Experimental Projects in Cognitive Science"
-                },
-                {
-                  "id":"50",
-                  "courseName":"CGS Concentration Elective"
-                },
-                {
-                  "id":"52",
-                  "courseName":"CGS Concentration Elective"
-                },
-                {
-                  "id":"54",
-                  "courseName":"Upper Level Elective"
-                },
-                {
-                  "id":"56",
-                  "courseName":"Upper Level Elective"
-                }
-              ]
-            },
-            {
-              "id":"47",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
                   "id":"49",
-                  "courseName":"CGS Concentration Elective"
-                },
-                {
-                  "id":"58",
-                  "courseName":"CGS Concentration Elective"
+                  "courseName":"OPRE 3310 Operations Management"
                 },
                 {
                   "id":"51",
-                  "courseName":"Upper Level Elective"
+                  "courseName":"ITSS 4360 Network and Information Security"
                 },
                 {
                   "id":"53",
-                  "courseName":"Upper Level Elective"
+                  "courseName":"ITSS 4370 Information Technology Infrastructure Management"
+                },
+                {
+                  "id":"54",
+                  "courseName":"Upper Level Guided Elective"
                 },
                 {
                   "id":"55",
-                  "courseName":"Upper Level Elective"
+                  "courseName":"Upper Level Guided Elective"
+                },
+                {
+                  "id":"59",
+                  "courseName":"BA 4095 Social Sector Engagement and Community Outreach Practicum"
+                },
+              ]
+            },
+            {
+              "id":"48",
+              "semesterName":"Spring semester",
+              "courses":[
+                {
+                  "id":"50",
+                  "courseName":"IMS 3310 International Business"
+                },
+                {
+                  "id":"52",
+                  "courseName":"ITSS 4395 Capstone Senior Project - Information Systems"
+                },
+                {
+                  "id":"56",
+                  "courseName":"Upper Level Guided Elective"
+                },
+                {
+                  "id":"60",
+                  "courseName":"Free Elective"
                 }
               ]
             },
             {
               "id":"57",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        }
-      ],
-      
-      'Neuroscience': [
-      	AP,
-      	{
-          "id":"1",
-          "year":"FRESHMAN",
-          "semesters":[
-            {
-              "id":"2",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"4",
-                  "courseName":"020 Core Course"
-                },
-                {
-                  "id":"6",
-                  "courseName":"CHEM 1311 General Chemistry I"
-                },
-                {
-                  "id":"8",
-                  "courseName":"CHEM 1111 General Chemistry Laboratory I"
-                },
-                {
-                  "id":"10",
-                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
-                },
-                {
-                  "id":"12",
-                  "courseName":"PSY 2301 Introduction to Psychology"
-                },
-                {
-                  "id":"59",
-                  "courseName":"BBSU 1100 First Year Seminar"
-                },
-                {
-                  "id":"60",
-                  "courseName":"UNIV 1010 Freshman Seminar"
-                }
-              ]
-            },
-            {
-              "id":"3",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"5",
-                  "courseName":"020 Core Course"
-                },
-                {
-                  "id":"7",
-                  "courseName":"CHEM 1312 General Chemistry II W/lab"
-                },
-                {
-                  "id":"9",
-                  "courseName":"CHEM 1112 General Chemistry II W/lab"
-                },
-                {
-                  "id":"11",
-                  "courseName":"HIST 1302 United States History Survey from the Civil War"
-                },
-                {
-                  "id":"13",
-                  "courseName":"NSC 3361 Introduction to Neuroscience"
-                },
-                {
-                  "id":"61",
-                  "courseName":"RHET 1302 Rhetoric"
-                }
-              ]
-            },
-            {
-              "id":"14",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"15",
-          "year":"SOPHOMORE",
-          "semesters":[
-            {
-              "id":"16",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"18",
-                  "courseName":"040 Core Course"
-                },
-                {
-                  "id":"20",
-                  "courseName":"GOVT 2305 American National Government"
-                },
-                {
-                  "id":"22",
-                  "courseName":"BIOL 2311 Introduction to Modern Biology I"
-                },
-                {
-                  "id":"24",
-                  "courseName":"BIOL 2111 Introduction to Modern Biology Workshop I"
-                },
-                {
-                  "id":"26",
-                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
-                },
-                {
-                  "id":"27",
-                  "courseName":"NSC 4352 Cellular Neuroscience"
-                }
-              ]
-            },
-            {
-              "id":"17",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"19",
-                  "courseName":"050 Core Course"
-                },
-                {
-                  "id":"21",
-                  "courseName":"GOVT 2306 State and Local Government"
-                },
-                {
-                  "id":"23",
-                  "courseName":"BIOL 2281 Introductory Biology Laboratory"
-                },
-                {
-                  "id":"25",
-                  "courseName":"PSY 2317 Statistics for Psychology"
-                },
-                {
-                  "id":"62",
-                  "courseName":"Elective"
-                },
-              ]
-            },
-            {
-              "id":"28",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"29",
-          "year":"JUNIOR",
-          "semesters":[
-            {
-              "id":"30",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"32",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"34",
-                  "courseName":"NSC 4354 Integrative Neuroscience"
-                },
-                {
-                  "id":"36",
-                  "courseName":"NSC Major Related Elective"
-                },
-                {
-                  "id":"38",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"40",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"42",
-                  "courseName":" UNIV 2020  Core Curriculum Assessment"
-                }
-              ]
-            },
-            {
-              "id":"31",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"33",
-                  "courseName":"NSC 4353 Neuroscience Laboratory Methods"
-                },
-                {
-                  "id":"35",
-                  "courseName":"NSC 4363 Neuropharmacology"
-                },
-                {
-                  "id":"37",
-                  "courseName":"NSC Major Related Elective"
-                },
-                {
-                  "id":"39",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"41",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"43",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"44",
-          "year":"SENIOR",
-          "semesters":[
-            {
-              "id":"45",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"47",
-                  "courseName":"NSC Major Related Elective"
-                },
-                {
-                  "id":"49",
-                  "courseName":"NSC Major Related Elective"
-                },
-                {
-                  "id":"51",
-                  "courseName":"Upper-Level Elective"
-                },
-                {
-                  "id":"53",
-                  "courseName":"Upper-Level Elective"
-                },
-                {
-                  "id":"57",
-                  "courseName":"NSC 4357 Neurobiology of Learning and Memory"
-                }
-              ]
-            },
-            {
-              "id":"46",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"48",
-                  "courseName":"NSC 4366 Neuroanatomy"
-                },
-                {
-                  "id":"50",
-                  "courseName":"NSC 4356 Neurophysiology"
-                },
-                {
-                  "id":"52",
-                  "courseName":"NSC Major Related Elective"
-                },
-                {
-                  "id":"54",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"56",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"58",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        }
-      ],
-      
-      'Psychology': [
-      	AP,
-      	{
-          "id":"1",
-          "year":"FRESHMAN",
-          "semesters":[
-            {
-              "id":"2",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"4",
-                  "courseName":"020 Core Course"
-                },
-                {
-                  "id":"6",
-                  "courseName":"030 Core Course"
-                },
-                {
-                  "id":"8",
-                  "courseName":"050 Core Course"
-                },
-                {
-                  "id":"52",
-                  "courseName":"060 Core Course"
-                },
-                {
-                  "id":"53",
-                  "courseName":"PSY 2301 Introduction to Psychology"
-                },
-                {
-                  "id":"54",
-                  "courseName":"BBSU 1100 First Year Seminar"
-                },
-                {
-                  "id":"55",
-                  "courseName":"UNIV 1010 Freshman Seminar"
-                },
-              ]
-            },
-            {
-              "id":"3",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"5",
-                  "courseName":"010 Core Course"
-                },
-                {
-                  "id":"7",
-                  "courseName":"030 Core Course"
-                },
-                {
-                  "id":"56",
-                  "courseName":"040 Core Course"
-                },
-                {
-                  "id":"57",
-                  "courseName":"060 Core Course"
-                },
-                {
-                  "id":"58",
-                  "courseName":"PSY 2314 Lifespan Development"
-                },
-              ]
-            },
-            {
-              "id":"9",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"10",
-          "year":"SOPHOMORE",
-          "semesters":[
-            {
-              "id":"11",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"13",
-                  "courseName":"010 Core Course"
-                },
-                {
-                  "id":"15",
-                  "courseName":"GOVT 2306 State and Local Government"
-                },
-                {
-                  "id":"17",
-                  "courseName":"PSY 2317 Statistics for Psychology"
-                },
-                {
-                  "id":"19",
-                  "courseName":"PSY 3310 Child Development"
-                },
-                {
-                  "id":"21",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"12",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"14",
-                  "courseName":"PSY 3331 Social Psychology"
-                },
-                {
-                  "id":"16",
-                  "courseName":"GOVT 2305 American National Government"
-                },
-                {
-                  "id":"18",
-                  "courseName":"PSY 3360 Historical Perspectives on Psychology: Mind and Machines since 1600"
-                },
-                {
-                  "id":"20",
-                  "courseName":"PSY 3392 Research Design and Analysis"
-                },
-                {
-                  "id":"22",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"23",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"24",
-          "year":"JUNIOR",
-          "semesters":[
-            {
-              "id":"25",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"27",
-                  "courseName":"PSY 3393 Experimental Projects in Psychology"
-                },
-                {
-                  "id":"29",
-                  "courseName":"PSY 3361 Cognitive Psychology"
-                },
-                {
-                  "id":"31",
-                  "courseName":"PSY Independent Study Option"
-                },
-                {
-                  "id":"33",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"35",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"36",
-                  "courseName":"UNIV 2020 Core Curriculum Assessment"
-                }
-              ]
-            },
-            {
-              "id":"26",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"28",
-                  "courseName":"NSC 3361 Introduction to Neuroscience"
-                },
-                {
-                  "id":"30",
-                  "courseName":"PSY Elective"
-                },
-                {
-                  "id":"32",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"34",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"37",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"38",
-          "year":"SENIOR",
-          "semesters":[
-            {
-              "id":"39",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"41",
-                  "courseName":"PSY 4343 Abnormal Psychology"
-                },
-                {
-                  "id":"43",
-                  "courseName":"PSY Elective"
-                },
-                {
-                  "id":"45",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"47",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"49",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"40",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"42",
-                  "courseName":"PSY Elective"
-                },
-                {
-                  "id":"44",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"46",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"48",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"50",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"51",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        }
-      ],
-      
-      'Speech-Language Pathology and Audiology': [
-      	AP,
-      	{
-          "id":"1",
-          "year":"FRESHMAN",
-          "semesters":[
-            {
-              "id":"2",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"4",
-                  "courseName":"030 Core Course"
-                },
-                {
-                  "id":"6",
-                  "courseName":"COMM 1311 Survey of Oral and Technology-based Communication"
-                },
-                {
-                  "id":"8",
-                  "courseName":"HIST 1301 U.S. History Survey to Civil War"
-                },
-                {
-                  "id":"10",
-                  "courseName":"MATH 1306 College Algebra for the Non-Scientist"
-                },
-                {
-                  "id":"12",
-                  "courseName":"BBSU 1100 First Year Seminar"
-                },
-                {
-                  "id":"13",
-                  "courseName":"UNIV 1010 Freshman Seminar"
-                }
-              ]
-            },
-            {
-              "id":"3",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"5",
-                  "courseName":"030 Core Course"
-                },
-                {
-                  "id":"7",
-                  "courseName":"RHET 1302 Rhetoric"
-                },
-                {
-                  "id":"9",
-                  "courseName":"HIST 1302 United States History Survey from the Civil War"
-                },
-                {
-                  "id":"11",
-                  "courseName":"PSY 2301 Introduction to Psychology"
-                },
-                {
-                  "id":"55",
-                  "courseName":"PSY 2314 Lifespan Development"
-                }
-              ]
-            },
-            {
-              "id":"14",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"15",
-          "year":"SOPHOMORE",
-          "semesters":[
-            {
-              "id":"16",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"18",
-                  "courseName":"GOVT 2306 State and Local Government"
-                },
-                {
-                  "id":"20",
-                  "courseName":"HUMA 1301 Exploration of Humanities"
-                },
-                {
-                  "id":"22",
-                  "courseName":"PSY 2317 Statistics for Psychology"
-                },
-                {
-                  "id":"56",
-                  "courseName":"SPAU 3301 Communication Disorders"
-                },
-                {
-                  "id":"57",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"17",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"19",
-                  "courseName":"GOVT 2305 American National Government"
-                },
-                {
-                  "id":"21",
-                  "courseName":"ARTS 1301 Exploration of the Arts"
-                },
-                {
-                  "id":"23",
-                  "courseName":"SPAU 3344 Anatomy and Physiology of Speech and Hearing"
-                },
-                {
-                  "id":"58",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"59",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"24",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"25",
-          "year":"JUNIOR",
-          "semesters":[
-            {
-              "id":"26",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"28",
-                  "courseName":"SPAU 3303 Normal Language Development"
-                },
-                {
-                  "id":"30",
-                  "courseName":"SPAU 3343 Phonetics"
-                },
-                {
-                  "id":"32",
-                  "courseName":"SPAU 3342 Exceptional Children"
-                },
-                {
-                  "id":"34",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"36",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"38",
-                  "courseName":"UNIV 2020 Core Curriculum Assessment"
-                }
-              ]
-            },
-            {
-              "id":"27",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"29",
-                  "courseName":"SPAU 3340 Articulation Disorders"
-                },
-                {
-                  "id":"31",
-                  "courseName":"SPAU 3304 Communication Sciences"
-                },
-                {
-                  "id":"33",
-                  "courseName":"SPAU 4308 Language Disorders of Children"
-                },
-                {
-                  "id":"35",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"37",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"39",
-              "semesterName":"Summer semester",
-              "courses":[
-                
-              ]
-            }
-          ]
-        },
-        {
-          "id":"40",
-          "year":"SENIOR",
-          "semesters":[
-            {
-              "id":"41",
-              "semesterName":"Fall semester",
-              "courses":[
-                {
-                  "id":"43",
-                  "courseName":"SPAU 3341 Audiology"
-                },
-                {
-                  "id":"45",
-                  "courseName":"SPAU 3388 Clinical Observation in Speech-Language Pathology"
-                },
-                {
-                  "id":"46",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"48",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"50",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"52",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"42",
-              "semesterName":"Spring semester",
-              "courses":[
-                {
-                  "id":"44",
-                  "courseName":"SPAU 3345 Neural Basis of Communication"
-                },
-                {
-                  "id":"47",
-                  "courseName":"SPAU 4393 Language in Culture and Society"
-                },
-                {
-                  "id":"49",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"51",
-                  "courseName":"Elective"
-                },
-                {
-                  "id":"53",
-                  "courseName":"Elective"
-                }
-              ]
-            },
-            {
-              "id":"54",
               "semesterName":"Summer semester",
               "courses":[
                 
