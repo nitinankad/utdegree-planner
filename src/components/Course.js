@@ -147,29 +147,35 @@ const Course = (props) => {
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         elevation={3}
-        onClick={() => showModal(true)}
       >
         <CardHeader
           title={
-            <>
-              <Tooltip interactive
-                title={
-                  valid === '1' ? '' :
-                    <React.Fragment>
-                      {valid}
-                    </React.Fragment>
-                } placement="top-start">
-                <div className={valid === '1' ? classes.highlightCourseName : classes.invalidHighlight}>{coursePrefix}</div>
-              </Tooltip>
-              {courseName}
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div onClick={() => showModal(true)}>
+                <Tooltip interactive
+                  title={
+                    valid === '1' ? '' :
+                      <React.Fragment>
+                        {valid}
+                      </React.Fragment>
+                  } placement="top-start">
+                  <div className={valid === '1' ? classes.highlightCourseName : classes.invalidHighlight}>{coursePrefix}</div>
+                </Tooltip>
+                {courseName}
+              </div>
+                
+              <div>
+                {valid !== '1' ? <Tooltip interactive title="Manual Approve" placement="top-start">
+                  <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
+                </Tooltip> : ''}
+                {state.manualApproved ? <Tooltip interactive title="Undo Approval" placement="top-start">
+                  <IconButton size="small" onClick={setValid}><CloseIcon /></IconButton>
+                </Tooltip> : ''}
+              </div>
 
-              {valid !== '1' ? <Tooltip interactive title="Manual Approve" placement="top-start">
-                <IconButton size="small" onClick={setValid}><CheckIcon /></IconButton>
-              </Tooltip> : ''}
-              {state.manualApproved ? <Tooltip interactive title="Undo Approval" placement="top-start">
-                <IconButton size="small" onClick={setValid}><CloseIcon /></IconButton>
-              </Tooltip> : ''}
-            </>
+              {/* Take up the remaining whitespace on the card to handle the modal popup */}
+              <div onClick={() => showModal(true)} style={{ flex: "1", height: "20px" }}></div>
+            </div>
           }
           titleTypographyProps={{ variant: 'body2' }}
           action={
@@ -187,8 +193,8 @@ const Course = (props) => {
       <Modal
         open={modalOpen}
         onClose={() => showModal(false)}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby="stats-modal-title"
+        aria-describedby="stats-modal-description"
       >
         <div style={{ position: "fixed", width: "100vw", height: "100vh", maxWidth: "800px", maxHeight: "600px", overflow: "auto", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", borderRadius: "10px" }}>
           <div style={{ textAlign: "center" }}>
