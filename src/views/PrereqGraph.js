@@ -74,9 +74,14 @@ const PrereqGraph = (props) => {
                                 graph["edges"].push({ from: id - 1, to: first[semId], color: { opacity: 0 } });
                             }
                             var prereqs = [];
-                            // var coreqs = [];
-                            if (course["Prereq"])
-                                prereqs = Array.from(course["Prereq"].matchAll("[A-Z]+ [0-9]+"));
+                            if (course["Prereq"]) {
+                                var preq = course["Prereq"];
+                                if(typeof preq === 'string' || preq instanceof String) {
+                                    prereqs = Array.from(preq.matchAll("[A-Z]+ [0-9]+"));
+                                } else {
+                                    console.log(course);
+                                }
+                            }
                             /*if(course["Coreq"])
                                 coreqs = Array.from(course["Coreq"].matchAll("[A-Z]+ [0-9]+"));*/
                             // prereqs.concat(coreqs); // TODO: deal with coreqs
@@ -110,7 +115,6 @@ const PrereqGraph = (props) => {
             alert('Please fix your prerequisites!');
             history.push("/")
         }
-        console.log(graph["nodes"])
 
     }
 

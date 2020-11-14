@@ -36,7 +36,6 @@ const dragWithinSemester = (board, sourceList, sourceIndex, destinationIndex, so
 
 // validate all courses on the board
 const validateBoard = (board) => {
-  console.log(board);
   var valid = true;
   for (var i = 0; i < board.length; i++) {
     var year = board[i]["semesters"];
@@ -86,7 +85,6 @@ const validateBoard = (board) => {
 // main logic for validating one course for a certain prerequisite
 const validateReq = (board, course, yearId, semId, req) => {
   if (course[req].startsWith("SPX")) {
-    console.log(course[req]);
     return false;
   }
 
@@ -114,7 +112,6 @@ const validateReq = (board, course, yearId, semId, req) => {
   }
   // replace all other 
   evalStr = evalStr.replace(/[A-Z]+ [0-9]+/g, "false");
-  console.log(evalStr);
   // eval is a necessary evil
   // eslint-disable-next-line
   var res = eval(evalStr);
@@ -289,7 +286,6 @@ const boardReducer = (state = boardData, action) => {
 
     case actionTypes.SET_BOARD: {
       const { newBoard } = action.payload;
-      console.log(newBoard)
       validateBoard(newBoard);
       return newBoard;
     }
