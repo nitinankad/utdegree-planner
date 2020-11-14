@@ -139,11 +139,11 @@ const Course = (props) => {
                 <p>RMP Rating</p>
                 {course["overall_rating"]
                   ? <h1>{course["overall_rating"]}</h1>
-                  : <h1>"N/A"</h1>
+                  : <h1>N/A</h1>
                 }
                 {course["total_ratings"]
                   ? <h3>{course["total_ratings"]} Reviews</h3>
-                  : <h3>"0 Reviews"</h3>
+                  : <h3>0 Reviews</h3>
                 }
               </div>
               {renderGraph(course)}
