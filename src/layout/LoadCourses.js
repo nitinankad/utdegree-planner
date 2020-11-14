@@ -13,12 +13,6 @@ import { setBoard } from "../actions/boardActions";
 import { addPDFCourses } from "../actions/boardActions";
 import Button from '@material-ui/core/Button';
 import degreeData from "../constants/degreePlans";
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import { loadJsonCourses, exportCourses } from "../actions/courseActions";
 import { useHistory } from "react-router-dom";
 
@@ -51,42 +45,11 @@ const LoadCourses = (props) => {
     openMenu: false,
     needUpdate: false
   });
-  const [open, setOpen] = useState({
-    text: '',
-    isOpen: false
-  });
-
-  const handleClickOpen = () => {
-    setOpen({
-      ...open,
-      isOpen: !open.isOpen
-    });
-  };
-
-  const handleTextChange = (e) => {
-    setOpen({
-      ...open,
-      text: e.target.value
-    });
-  };
-
-  const handleClose = () => {
-    setOpen({
-      ...open,
-      isOpen: !open.isOpen
-    });
-
-  };
 
   const handleExport = () => {
     // exports the board as a JSON object for importing later on
     // currently sends out an alert from the dispatched function
     dispatch(exportCourses());
-  }
-
-  const handleSend = () => {
-    handleClose();
-    dispatch(loadJsonCourses(open.text));
   }
 
   const handleClick = () => {
@@ -108,7 +71,7 @@ const LoadCourses = (props) => {
     console.log('file uploaded!');
     var data = new FormData()
     data.append('file', e.target.files[0])
-    fetch('https://salty-cove-22105.herokuapp.com/api/pdfParse', {
+    fetch('https://picstopdf.herokuapp.com/api/pdfParse', {
       method: 'POST',
       body: data
     }).then(response => response.json()).then(data => {
@@ -118,6 +81,17 @@ const LoadCourses = (props) => {
         needUpdate: !state.needUpdate,
       });
     })
+  }
+
+  const handleDegreeUpload = (e) => {
+    console.log('degree uploaded!');
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var deg = e.target.result;
+      dispatch(loadJsonCourses(deg));
+    };
+    reader.readAsText(file);
   }
 
   return (
@@ -151,32 +125,19 @@ const LoadCourses = (props) => {
         </List>
       </Collapse>
       <ListItem>
-        <Button variant="contained" onClick={handleClickOpen}>Import</Button>
-        <Dialog open={open.isOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Import</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Paste in your course JSON here (must be exported using the Export button above!)
-          </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              label="JSON"
-              type="text"
-              value={open.text}
-              onChange={handleTextChange}
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
+        <input
+          accept="text/plain"
+          className={classes.input}
+          style={{ display: 'none' }}
+          id="file"
+          type="file"
+          onChange={e => handleDegreeUpload(e)}
+        />
+        <label htmlFor="file">
+          <Button variant="contained" component="span" className={classes.button}>
+            Import
           </Button>
-            <Button onClick={handleSend} color="primary">
-              Import
-          </Button>
-          </DialogActions>
-        </Dialog>
+        </label>
       </ListItem>
       <ListItem>
         <Button variant="contained" onClick={handleExport}>Export</Button>
