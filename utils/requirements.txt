@@ -1,0 +1,10 @@
+beautifulsoup4==4.9.3
+click==7.1.2
+Flask==1.1.2
+Flask-Cors==3.0.9
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+six==1.15.0
+soupsieve==2.0.1
+Werkzeug==1.0.1
