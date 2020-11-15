@@ -166,7 +166,7 @@ const Course = (props) => {
                 <p>RMP Rating</p>
                 {course["overall_rating"]
                   ? <h1
-                    style={{ borderRadius: "20px", width: "120px", margin: "0 auto" }}
+                    style={{ borderRadius: "20px", width: "100%", maxWidth: "120px", margin: "0 auto" }}
                     className={course["overall_rating"] > 3.5 ? classes.green :
                       course["overall_rating"] > 2.5 ? classes.yellow : classes.red}
                   >{course["overall_rating"]}</h1>
