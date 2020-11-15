@@ -12,6 +12,8 @@ import Modal from '@material-ui/core/Modal';
 import courseData from '../constants/spring2020Data';
 import { Bar } from "react-chartjs-2";
 import { reformatArray, sortByGrades, splitGradeData, getGradeColors } from "../utils/gradeChart";
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,18 +48,35 @@ const useStyles = makeStyles((theme) => ({
     '&:focus': {
       outline: 'none'
     }
+  },
+  green: {
+    backgroundColor: "#95ff95"
+  },
+  yellow: {
+    backgroundColor: "#ffda6c"
+  },
+  red: {
+    backgroundColor: "#ff7373"
   }
 }));
 
 const Course = (props) => {
   let { dispatch, courseName, yearIndex, semesterIndex, courseIndex, valid, manualApprove } = props;
   const classes = useStyles();
-  const [state, setState] = useState({ isHovering: false, manualApproved: manualApprove });
+  const [state, setState] = useState({ isHovering: false, manualApproved: manualApprove, checked: false });
   const [modalOpen, setModalOpen] = useState(false);
+
   const handleHover = () => {
     setState({
       ...state,
       isHovering: !state.isHovering
+    });
+  };
+
+  const toggleSort = () => {
+    setState({
+      ...state,
+      checked: !state.checked
     });
   };
 
@@ -127,18 +146,30 @@ const Course = (props) => {
   };
 
   const displayClassInfo = () => {
-    if (!courseData[coursePrefix]) return (<div>No course data available.</div>);
-
+    if (!courseData[coursePrefix]) return (<div style={{ textAlign: "center" }}>No course data available.</div>);
+    var data = courseData[coursePrefix];
+    if (state.checked && courseData[coursePrefix]) {
+      data = JSON.parse(JSON.stringify(courseData[coursePrefix]));
+      data.sort(function (a, b) {
+        if (!a["overall_rating"]) return 1;
+        if (!b["overall_rating"]) return -1;
+        return b["overall_rating"] - a["overall_rating"];
+      });
+    }
     return (
       <>
         <div>
-          {courseData[coursePrefix].map((course, i) =>
+          {data.map((course, i) =>
             <div key={i} style={{ display: "flex" }}>
               <div style={{ width: "20%", margin: "auto", textAlign: "center" }}>
                 {/* {course["professor"]} */}
                 <p>RMP Rating</p>
                 {course["overall_rating"]
-                  ? <h1>{course["overall_rating"]}</h1>
+                  ? <h1
+                    style={{ borderRadius: "20px", width: "120px", margin: "0 auto" }}
+                    className={course["overall_rating"] > 3.5 ? classes.green :
+                      course["overall_rating"] > 2.5 ? classes.yellow : classes.red}
+                  >{course["overall_rating"]}</h1>
                   : <h1>N/A</h1>
                 }
                 {course["total_ratings"]
@@ -213,8 +244,15 @@ const Course = (props) => {
         <div className={classes.rmpBox} style={{ position: "fixed", width: "100vw", height: "100vh", maxWidth: "800px", maxHeight: "600px", overflow: "auto", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", borderRadius: "10px" }}>
           <div style={{ margin: "20px" }}>
             <div style={{ display: "flex" }}>
-              <div style={{ width: "20%" }}></div>
-              <div style={{ width: "80%", textAlign: "center" }}>
+              <div style={{ width: "20%" }}>
+                <FormControlLabel
+                  control={<Switch checked={state.checked} onChange={toggleSort} name="sort" />}
+                  label={
+                    <p style={{ fontSize: "13px" }}>Sort by Rating</p>
+                  }
+                />
+              </div>
+              <div style={{ width: "80%", textAlign: "center", margin: "auto" }}>
                 <div className={classes.highlightCourseName}>{coursePrefix}</div> {courseName}
               </div>
             </div>
