@@ -353,6 +353,46 @@ const boardReducer = (state = boardData, action) => {
       return newBoard;
     }
 
+    // Add an additional year to the board
+    case actionTypes.ADD_EXTRA_YEAR: {
+      const additionalYear = {
+        id: uuid(),
+        year: "YEAR",
+        semesters: [
+          {
+            id: uuid(),
+            semesterName: "Fall semester",
+            courses: []
+          },
+          {
+            id: uuid(),
+            semesterName: "Spring semester",
+            courses: []
+          },
+          {
+            id: uuid(),
+            semesterName: "Summer semester",
+            courses: []
+          }
+        ]
+      };
+
+      let currBoard = [...state];
+      currBoard.push(additionalYear);
+
+      return currBoard;
+    }
+
+    // Delete an extra year from the board
+    case actionTypes.DELETE_EXTRA_YEAR: {
+      const { yearIndex } = action.payload;
+      
+      let currBoard = [...state];
+      currBoard.splice(yearIndex, 1);
+
+      return currBoard;
+    }
+
     default: {
       return state;
     }

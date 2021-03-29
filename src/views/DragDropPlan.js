@@ -5,6 +5,9 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
 import { handleDrag } from '../actions/semesterActions';
 import Year from "../components/Year";
+import { addExtraYear, deleteExtraYear } from '../actions/boardActions';
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -31,6 +34,9 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         marginTop: '30px',
     },
+    addYearButton: {
+        marginTop: "25px"
+    }
 }));
 
 const DragDropPlan = (props) => {
@@ -44,6 +50,17 @@ const DragDropPlan = (props) => {
         dispatch(handleDrag(result));
     }
 
+    const addYear = () => {
+        dispatch(addExtraYear());
+    };
+
+    const deleteYear = (yearIndex) => {
+        const ans = window.confirm("Are you sure you want to delete the year?");
+        if (!ans) return;
+
+        dispatch(deleteExtraYear(yearIndex));
+    };
+
     return (
         <main className={classes.root}>
             <div className={classes.toolbar} />
@@ -51,7 +68,7 @@ const DragDropPlan = (props) => {
                 {board.map((item, index) => (
                     <div key={index} className={(index === 0) ? classes.firstYearRow : classes.yearRow}>
                         <Paper className={classes.verticalYearLabel}>
-                            {item.year}
+                            {item.year} {item.year === "YEAR" ? <DeleteSharpIcon fontSize={"small"} onClick={() => deleteYear(index)} /> : null}
                         </Paper>
                         <Year
                             semesters={item.semesters}
@@ -59,6 +76,10 @@ const DragDropPlan = (props) => {
                         />
                     </div>
                 ))}
+
+                <Button variant="outlined" component="span" className={classes.addYearButton} onClick={() => addYear()}>
+                    Add year
+                </Button>
             </DragDropContext>
         </main>
     );
