@@ -36,10 +36,14 @@ const LoadCourses = (props) => {
   const classes = useStyles();
   let history = useHistory();
 
-  function redirectGraph() {
+  const redirectGraph = () => {
     // history.push("/" + yearIndex + "/" + semesterIndex)
     history.push("/graph");
   }
+
+  const redirectTable = () => {
+    history.push("/table");
+  };
 
   const [state, setState] = useState({
     openMenu: false,
@@ -159,6 +163,9 @@ const LoadCourses = (props) => {
       </ListItem>
       <ListItem>
         <Button variant="contained" color="primary" onClick={redirectGraph}>Show Graph</Button>
+      </ListItem>
+      <ListItem>
+        <Button variant="contained" color="primary" onClick={redirectTable}>Show Table</Button>
       </ListItem>
     </List >
   );

@@ -14,6 +14,7 @@ import {
   useParams,
 } from "react-router-dom";
 import PrereqGraph from './PrereqGraph';
+import TableView from './TableView';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,6 +73,9 @@ const Dashboard = (props) => {
             </Route>
             <Route exact path="/graph">
               <PrereqGraph board={board} />
+            </Route>
+            <Route exact path="/table">
+              <TableView board={board} />
             </Route>
             <Route exact path="/:year/:semester" children={<Child board={board}/>} />
           </Switch>
