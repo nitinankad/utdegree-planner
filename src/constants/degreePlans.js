@@ -1413,6 +1413,294 @@ export default [
     }
   },
   {
+    schoolName: 'Economic, Political and Policy Sciences',
+    // degreePlans: [
+    //     "Economics (BS)",
+    // ]
+    degreePlans: {
+      'Economics': [
+        AP,
+        {
+          id: '1',
+          year: 'FRESHMAN',
+          semesters: [
+            {
+              id: '2',
+              semesterName: 'Fall semester',
+              courses: [
+                {
+                  id: '3',
+                  courseName: '030 Core Course'
+                },
+                {
+                  id: '4',
+                  courseName: 'ECON 2301 Principles of Macroeconomics'
+                },
+                {
+                  id: '5',
+                  courseName: 'GOVT 2305 American National Government'
+                },
+                {
+                  id: '6',
+                  courseName: 'EPPS 1110 Critical Issues in the Social Sciences',
+                  Coreq: 'UNIV 1010'
+                },
+                {
+                  id: '7',
+                  courseName: 'MATH 1314 College Algebra',
+                  Prereq: 'ALEKS 0000 or STAT 1342'
+                },
+                {
+                  id: '8',
+                  courseName: 'RHET 1302 Rhetoric'
+                },
+                {
+                  id: '9',
+                  courseName: 'UNIV 1010 Freshman Seminar',
+                  Coreq: 'ARHM 1100 or ATCM 1100 or BA 1100 or BBSU 1100 or BCOM 1300 or BIS 1100 or ECS 1100 or EPPS 1110 or NATS 1101 or NATS 1142 or UNIV 1100'
+                }
+              ]
+            },
+            {
+              id: '10',
+              semesterName: 'Spring semester',
+              courses: [
+                {
+                  id: '11',
+                  courseName: 'COMM 1311 Survey of Oral and Technology-based Communication'
+                },
+                {
+                  id: '12',
+                  courseName: 'ECON 2302 Principles of Microeconomics'
+                },
+                {
+                  id: '13',
+                  courseName: 'GOVT 2306 State and Local Government'
+                },
+                {
+                  id: '14',
+                  courseName: 'MATH 1325 Applied Calculus I',
+                  Prereq: 'ALEKS 0000 or MATH 1314'
+                },
+                {
+                  id: '15',
+                  courseName: 'EPPS 2301 Research Design in the Social and Policy Sciences'
+                }
+              ]
+            },
+            {
+              id: '17',
+              semesterName: 'Summer semester',
+              courses: []
+            }
+          ]
+        },
+        {
+          id: '18',
+          year: 'SOPHOMORE',
+          semesters: [
+            {
+              id: '19',
+              semesterName: 'Fall semester',
+              courses: [
+                {
+                  id: '20',
+                  courseName: '030 Core Course'
+                },
+                {
+                  id: '21',
+                  courseName: 'HIST 1301 U.S. History Survey to Civil War'
+                },
+                {
+                  id: '22',
+                  courseName: 'ARTS 1301 Exploration of the Arts'
+                },
+                {
+                  id: '23',
+                  courseName: 'EPPS 2302 Methods of Quantitative Analysis in the Social and Policy Sciences',
+                  Prereq: 'MATH 1314'
+                },
+                {
+                  id: '24',
+                  courseName: 'MATH 1326 Applied Calculus II',
+                  Prereq: 'MATH 1325'
+                }              ]
+            },
+            {
+              id: '26',
+              semesterName: 'Spring semester',
+              courses: [
+                {
+                  id: '27',
+                  courseName: '040 Core Course'
+                },
+                {
+                  id: '28',
+                  courseName: 'HIST 1302 U.S. History Survey from Civil War'
+                },
+                {
+                  id: '29',
+                  courseName: 'ECON 3310 Intermediate Microeconomic Theory',
+                  Prereq: ' ECON 2302 and (MATH 1325 or MATH 2413 or MATH 2417) and (ENGR 3310 or EPPS 2302 or OPRE 3360 or STAT 1342 or STAT 2332 or STAT 3341 or STAT 3355 or STAT 3360 or STAT 4351 or CS 3341)'
+                },
+                {
+                  id: '30',
+                  courseName: 'ECON 3311 Intermediate Macroeconomic Theory',
+                  Prereq: 'ECON 2301 and ECON 2302 and (MATH 1325 or MATH 2413 or MATH 2417) and (ENGR 3314 or EPPS 2302 or OPRE 3360 or STAT 1342 or STAT 2332 or STAT 3341 or STAT 3355 or STAT 3360 or STAT 4351 or CS 3341)'
+                },
+                {
+                  id: '31',
+                  courseName: 'CRIM 1301 Introduction to Criminal Justice'
+                }
+              ]
+            },
+            {
+              id: '34',
+              semesterName: 'Summer semester',
+              courses: []
+            }
+          ]
+        },
+        {
+          id: '35',
+          year: 'JUNIOR',
+          semesters: [
+            {
+              id: '36',
+              semesterName: 'Fall semester',
+              courses: [
+                {
+                  id: '37',
+                  courseName: 'ECON 4320 Public Sector Economics',
+                  Prereq: 'ECON 3310'
+                },
+                {
+                  id: '38',
+                  courseName: 'ECON 4351 Mathematical Economics',
+                  Prereq: '(EPPS 2302 or OPRE 3360 or STAT 1342 or STAT 2332 or STAT 3341 or STAT 3355 or STAT 3360 or STAT 4351) and (MATH 1326 or MATH 2414 or MATH 2419)'
+                },
+                {
+                  id: '39',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '40',
+                  courseName: 'Elective Requirement'
+                },
+                {
+                  id: '41',
+                  courseName: 'Elective Requirement'
+                },
+              ]
+            },
+            {
+              id: '43',
+              semesterName: 'Spring semester',
+              courses: [
+                {
+                  id: '44',
+                  courseName: 'ECON 4355 Econometrics',
+                  Prereq: '(EPPS 2302 or OPRE 3360 or STAT 1342 or STAT 2332 or STAT 3341 or STAT 3355 or STAT 3360 or STAT 4351 or CS 3341) and (MATH 1326 or MATH 2414 or MATH 2419)'
+                },
+                {
+                  id: '45',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '46',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '47',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '42',
+                  courseName: 'Upper Level Elective'
+                }
+              ]
+            },
+            {
+              id: '48',
+              semesterName: 'Summer semester',
+              courses: []
+            }
+          ]
+        },
+        {
+          id: '49',
+          year: 'SENIOR',
+          semesters: [
+            {
+              id: '50',
+              semesterName: 'Fall semester',
+              courses: [
+                {
+                  id: '51',
+                  courseName: 'ECON Major Related Elective',
+                  Prereq: ''
+                },
+                {
+                  id: '52',
+                  courseName: 'ECON Major Related Elective',
+                  PreOrCoreq: ''
+                },
+                {
+                  id: '53',
+                  courseName: 'ECON Major Related Elective',
+                  Prereq: ''
+                },
+                {
+                  id: '54',
+                  courseName: 'Elective Requirement'
+                },
+                {
+                  id: '32',
+                  courseName: 'Elective Requirement'
+                },
+                {
+                  id: '55',
+                  courseName: 'UNIV 2020 Core Curriculum Assessment'
+                }
+              ]
+            },
+            {
+              id: '56',
+              semesterName: 'Spring semester',
+              courses: [
+                {
+                  id: '57',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '58',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '59',
+                  courseName: 'ECON Major Related Elective'
+                },
+                {
+                  id: '60',
+                  courseName: 'Elective Requirement'
+                },
+                {
+                  id: '61',
+                  courseName: 'Upper Level Elective'
+                }
+              ]
+            },
+            {
+              id: '62',
+              semesterName: 'Summer semester',
+              courses: []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     schoolName: "Engineering and Computer Science",
     // degreePlans: [
     //     "Biomedical Engineering",
