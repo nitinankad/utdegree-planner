@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
             borderCollapse: "collapse",
             marginLeft: "50px"
         },
+        "& button": {
+            marginLeft: "50px"
+        },
         "& tbody": {
             maxWidth: "900px",
             fontSize: "13px",
