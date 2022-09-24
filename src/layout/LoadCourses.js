@@ -146,21 +146,21 @@ const LoadCourses = (props) => {
       <ListItem>
         <Button variant="contained" onClick={handleExport}>Export</Button>
       </ListItem>
-      <ListItem>
-        <input
-          accept="application/pdf"
-          className={classes.input}
-          style={{ display: 'none' }}
-          id="file"
-          type="file"
-          onChange={e => handleFileUpload(e)}
-        />
-        <label htmlFor="file">
-          <Button variant="outlined" component="span" className={classes.button}>
-            Upload
-          </Button>
-        </label>
-      </ListItem>
+      {/*<ListItem>*/}
+      {/*  <input*/}
+      {/*    accept="application/pdf"*/}
+      {/*    className={classes.input}*/}
+      {/*    style={{ display: 'none' }}*/}
+      {/*    id="file"*/}
+      {/*    type="file"*/}
+      {/*    onChange={e => handleFileUpload(e)}*/}
+      {/*  />*/}
+      {/*  <label htmlFor="file">*/}
+      {/*    <Button variant="outlined" component="span" className={classes.button}>*/}
+      {/*      Upload*/}
+      {/*    </Button>*/}
+      {/*  </label>*/}
+      {/*</ListItem>*/}
       <ListItem>
         <Button variant="contained" color="primary" onClick={redirectGraph}>Show Graph</Button>
       </ListItem>

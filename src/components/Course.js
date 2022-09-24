@@ -84,7 +84,6 @@ const Course = (props) => {
     setState({
       ...state,
       manualApproved: !state.manualApproved,
-      isHovering: !state.isHovering
     });
     // console.log(state.manualApproved);
     dispatch(editCourse(yearIndex, semesterIndex, courseIndex));
