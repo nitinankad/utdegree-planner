@@ -32,3 +32,4 @@ Feel free to contribute! Submit an issue if you want to report a bug or suggest 
 
 Special thanks to the contributors!
 - [Sunny Guan](https://github.com/sunnyguan)
+- [Travis A. Dula](https://github.com/travisdula)
