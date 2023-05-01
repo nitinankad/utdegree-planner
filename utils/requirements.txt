@@ -1,6 +1,6 @@
 beautifulsoup4==4.9.3
 click==7.1.2
-Flask==1.1.2
+Flask==2.3.2
 Flask-Cors==3.0.9
 itsdangerous==1.1.0
 jinja2>=2.11.3
