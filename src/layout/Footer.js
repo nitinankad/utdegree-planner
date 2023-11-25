@@ -22,6 +22,10 @@ const Footer = () => {
         <Link component="a" href="https://www.linkedin.com/in/sunny-guan/" target="blank">
         Sunny Guan
         </Link>
+        {' '} and {' '}
+        <Link component="a" href="https://github.com/travisdula" target="blank">
+        Travis A. Dula
+        </Link>
         {' '} for contributing. Data obtained from {' '}
         <Link component="a" href="https://www.utdmercury.com/" target="blank">
         The Mercury
