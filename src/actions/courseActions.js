@@ -44,3 +44,12 @@ export const exportCourses = () => {
     }
   }
 };
+
+export const exportToExcel = () => {
+  return {
+    type: actionTypes.EXPORT_TO_EXCEL,
+    payload: {
+      
+    }
+  }
+};

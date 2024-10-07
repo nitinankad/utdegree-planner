@@ -2,6 +2,8 @@ import boardData from "../constants/boardData";
 import { actionTypes } from "../constants/actionTypes";
 import prereqMap from "../constants/prereqMap";
 import uuid from "uuid4";
+import * as XLSX from "xlsx";
+import { getHours } from "../utils/getHours";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = [...list];
@@ -277,6 +279,56 @@ const boardReducer = (state = boardData, action) => {
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
+
+      return currBoard;
+    }
+
+    case actionTypes.EXPORT_TO_EXCEL: {
+      const currBoard = [...state];
+      const workbook = XLSX.utils.book_new();
+
+      currBoard.forEach((yearData) => {
+          const { year, semesters } = yearData;
+
+          const rows = [];
+
+          rows.push(["Semester", "Course Name", "Prerequisites", "Corequisites", "Hours"]);
+
+          semesters.forEach((semester) => {
+              const { semesterName, courses, hours } = semester;
+              courses.forEach((course) => {
+                  rows.push([
+                      semesterName,
+                      course.courseName,
+                      course.Prereq || "",
+                      course.Coreq || "",
+                      getHours(course.courseName),
+                  ]);
+              });
+
+              rows.push([`${semesterName} Total`, "", "", "", hours]);
+              rows.push([]);
+          });
+
+          const worksheet = XLSX.utils.aoa_to_sheet(rows);
+          XLSX.utils.book_append_sheet(workbook, worksheet, year);
+      });
+
+      const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+      const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+
+      link.href = url;
+      link.download = `${uuid()}.xlsx`;
+      link.target = "_blank";
+
+      document.body.appendChild(link);
+      link.click();
+
+      URL.revokeObjectURL(url);
+      document.body.removeChild(link);
 
       return currBoard;
     }

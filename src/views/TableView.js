@@ -2,6 +2,7 @@ import { Button, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { Fragment } from 'react';
 import { useHistory } from 'react-router';
+import { getHours } from '../utils/getHours';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -81,20 +82,6 @@ const TableView = (props) => {
         return <>
             <span className={classes.highlightCourseName}>{coursePrefix}</span> {courseName}
         </>;
-    }
-
-    const getHours = (courseName) => {
-        const pattern = new RegExp(/\d{4}/);
-        
-        let creditHours = 3;
-
-        if (pattern.test(courseName)) {
-            let coursePrefix = courseName.match(pattern);
-            console.log(coursePrefix);
-            creditHours = parseInt(coursePrefix[0][1]);
-        }
-
-        return creditHours;
     }
 
     return (

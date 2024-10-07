@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { setBoard } from "../actions/boardActions";
 import Button from '@material-ui/core/Button';
 import degreeData from "../constants/degreePlans";
-import { loadJsonCourses, exportCourses } from "../actions/courseActions";
+import { loadJsonCourses, exportCourses, exportToExcel } from "../actions/courseActions";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -54,6 +54,10 @@ const LoadCourses = (props) => {
     // currently sends out an alert from the dispatched function
     dispatch(exportCourses());
   }
+
+  const handleExportToExcel = () => {
+    dispatch(exportToExcel());
+  };
 
   const handleClick = () => {
     setState({
@@ -125,6 +129,9 @@ const LoadCourses = (props) => {
       </ListItem>
       <ListItem>
         <Button variant="contained" onClick={handleExport}>Export</Button>
+      </ListItem>
+      <ListItem>
+        <Button variant="contained" onClick={handleExportToExcel}>Export to Excel</Button>
       </ListItem>
       <ListItem>
         <Button variant="contained" color="primary" onClick={redirectGraph}>Show Graph</Button>
