@@ -10,7 +10,6 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import SchoolIcon from '@material-ui/icons/School';
 import { connect } from 'react-redux';
 import { setBoard } from "../actions/boardActions";
-import { addPDFCourses } from "../actions/boardActions";
 import Button from '@material-ui/core/Button';
 import degreeData from "../constants/degreePlans";
 import { loadJsonCourses, exportCourses } from "../actions/courseActions";
@@ -67,25 +66,6 @@ const LoadCourses = (props) => {
     const selectedDegreeName = e.target.textContent;
     dispatch(setBoard(degreeData[schoolIndex].degreePlans[selectedDegreeName]));
   };
-
-  const handleFileUpload = (e) => {
-    // fetch transcript parsing Python API, dispatch to backend
-    // when API call returns to update board, update state to
-    // refresh frontend
-    console.log('file uploaded!');
-    var data = new FormData()
-    data.append('file', e.target.files[0])
-    fetch('https://picstopdf.herokuapp.com/api/pdfParse', {
-      method: 'POST',
-      body: data
-    }).then(response => response.json()).then(data => {
-      dispatch(addPDFCourses(data));
-      setState({
-        ...state,
-        needUpdate: !state.needUpdate,
-      });
-    })
-  }
 
   const handleDegreeUpload = (e) => {
     console.log('degree uploaded!');
