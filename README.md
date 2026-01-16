@@ -22,6 +22,7 @@
 - Graph visualization of the degree plan
 - RateMyProfessor ratings + Grade distributions
 - Export to Excel
+- Dark mode
 
 ## Setup
 1. Install the requirements with ```npm install```
