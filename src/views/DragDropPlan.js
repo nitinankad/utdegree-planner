@@ -22,6 +22,11 @@ const useStyles = makeStyles(theme => ({
         marginRight: '15px',
         padding: 4,
         fontWeight: 700,
+        color: theme.palette.text.primary,
+        alignSelf: 'stretch',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         [theme.breakpoints.down('md')]: {
             marginTop: '10px',
         },

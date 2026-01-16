@@ -23,9 +23,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: 14,
   },
   subheaderListItem: {
-    backgroundColor: "#FFF",
+    backgroundColor: theme.palette.background.paper,
     "&:hover": {
-      backgroundColor: "#FFF",
+      backgroundColor: theme.palette.background.paper,
     },
   },
 }));
